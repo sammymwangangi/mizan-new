@@ -57,50 +57,50 @@ body {
 }
 
 /* ============================================
-   AURORA LIGHTS
+   AURORA LIGHTS — v6
+   Larger drift + opacity & hue pulse.
+   Uses `screen` blend so it works regardless of
+   parent isolation/stacking context.
    ============================================ */
 @keyframes aurora-drift-1 {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  50%  { transform: translate3d(60px, -40px, 0) scale(1.15); }
+  33%  { transform: translate3d(140px, -80px, 0) scale(1.2); }
+  66%  { transform: translate3d(-60px, 100px, 0) scale(0.95); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 @keyframes aurora-drift-2 {
   0%   { transform: translate3d(0, 0, 0) scale(1); }
-  50%  { transform: translate3d(-80px, 50px, 0) scale(1.1); }
+  33%  { transform: translate3d(-160px, 80px, 0) scale(1.15); }
+  66%  { transform: translate3d(80px, -60px, 0) scale(0.9); }
   100% { transform: translate3d(0, 0, 0) scale(1); }
 }
 @keyframes aurora-drift-3 {
   0%   { transform: translate3d(0, 0, 0) scale(0.95); }
-  50%  { transform: translate3d(40px, 30px, 0) scale(1.2); }
+  33%  { transform: translate3d(120px, 90px, 0) scale(1.25); }
+  66%  { transform: translate3d(-100px, -40px, 0) scale(1.05); }
   100% { transform: translate3d(0, 0, 0) scale(0.95); }
 }
 @keyframes aurora-drift-4 {
   0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
-  50%  { transform: translate3d(-30px, -60px, 0) rotate(8deg); }
+  33%  { transform: translate3d(-80px, -120px, 0) rotate(15deg); }
+  66%  { transform: translate3d(60px, 80px, 0) rotate(-10deg); }
   100% { transform: translate3d(0, 0, 0) rotate(0deg); }
 }
 
-@keyframes ray-pulse {
-  0%, 100% { opacity: 0.45; }
-  50%      { opacity: 0.75; }
+/* The "breathing" — opacity & hue cycle that runs simultaneously
+   with the drift. THIS is what makes it feel alive. */
+@keyframes aurora-pulse {
+  0%, 100% { opacity: 0.7; filter: blur(80px) hue-rotate(0deg); }
+  50%      { opacity: 1;   filter: blur(90px) hue-rotate(20deg); }
 }
 
 .aurora-blob {
   position: absolute;
   border-radius: 9999px;
   filter: blur(80px);
-  mix-blend-mode: plus-lighter;
+  mix-blend-mode: screen;     /* ← changed from plus-lighter */
   pointer-events: none;
-  will-change: transform;
-}
-
-.aurora-ray {
-  position: absolute;
-  pointer-events: none;
-  mix-blend-mode: plus-lighter;
-  filter: blur(20px);
-  opacity: 0.6;
-  animation: ray-pulse 6s ease-in-out infinite;
+  will-change: transform, opacity, filter;
 }
 
 /* ============================================
