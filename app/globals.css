@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN TOKENS
+   In Tailwind v4, --font-sans inside @theme
+   becomes the value used by `font-sans` utility.
+   We also set it on body directly as a belt-and-braces.
+   ============================================ */
+@theme {
+  --color-bg: #1B1C39;
+  --color-bg-deep: #0F1028;
+  --color-text: #FFFFFF;
+  --color-text-muted: rgba(255, 255, 255, 0.6);
+  --color-text-subtle: rgba(255, 255, 255, 0.4);
+
+  --color-violet: #7C5CFF;
+  --color-violet-soft: #A78BFA;
+  --color-pink: #FF6BB8;
+  --color-cyan: #5CE1FF;
+  --color-magenta: #BA85FF;
+  --color-indigo: #5B5FFF;
+
+  --color-glass: rgba(255, 255, 255, 0.04);
+  --color-glass-border: rgba(255, 255, 255, 0.10);
+  --color-glass-strong: rgba(255, 255, 255, 0.08);
+
+  /* Tailwind v4 reads --font-sans from @theme and binds it to font-sans utility */
+  --font-sans: var(--font-poppins, "Poppins"), system-ui, -apple-system, sans-serif;
+
+  --radius-card: 28px;
+  --radius-pill: 9999px;
+
+  --shadow-glass: 0 24px 60px -20px rgba(0, 0, 0, 0.6),
+                  0 8px 24px -8px rgba(124, 92, 255, 0.25),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-glass-large: 0 60px 120px -40px rgba(0, 0, 0, 0.7),
+                        0 30px 80px -20px rgba(124, 92, 255, 0.30),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* ============================================
+   BASE — explicit font-family on body so it
+   doesn't depend solely on Tailwind's binding
+   ============================================ */
+html, body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  /* Fallback chain ensures Poppins shows even if @theme binding hiccups */
+  font-family: var(--font-poppins, "Poppins"), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   AURORA LIGHTS
+   ============================================ */
+@keyframes aurora-drift-1 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(60px, -40px, 0) scale(1.15); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes aurora-drift-2 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-80px, 50px, 0) scale(1.1); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes aurora-drift-3 {
+  0%   { transform: translate3d(0, 0, 0) scale(0.95); }
+  50%  { transform: translate3d(40px, 30px, 0) scale(1.2); }
+  100% { transform: translate3d(0, 0, 0) scale(0.95); }
+}
+@keyframes aurora-drift-4 {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50%  { transform: translate3d(-30px, -60px, 0) rotate(8deg); }
+  100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+}
+
+@keyframes ray-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.75; }
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.aurora-ray {
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: plus-lighter;
+  filter: blur(20px);
+  opacity: 0.6;
+  animation: ray-pulse 6s ease-in-out infinite;
+}
+
+/* ============================================
+   GLASS CARD
+   ============================================ */
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes border-rotate {
+  to { --border-angle: 360deg; }
+}
+
+.glass-card {
+  position: relative;
+  background: var(--color-glass);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-glass);
+  isolation: isolate;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    transparent 200deg,
+    rgba(124, 92, 255, 0.9) 260deg,
+    rgba(255, 107, 184, 1) 290deg,
+    rgba(92, 225, 255, 0.9) 320deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: border-rotate 4s linear infinite;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-card.glass-card--hero::before {
+  animation-duration: 8s;
+}
+
+.glass-card.glass-card--hero {
+  box-shadow: var(--shadow-glass-large);
+}
+
+/* ============================================
+   FLOAT
+   ============================================ */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.float-slow  { animation: float-y 5s ease-in-out infinite; }
+.float-fast  { animation: float-y 3.5s ease-in-out infinite; }
+
+/* ============================================
+   3D STAGE
+   ============================================ */
+.tilt-stage {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+.tilt-target {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob,
+  .aurora-ray,
+  .glass-card::before,
+  .float-slow,
+  .float-fast {
+    animation: none !important;
+  }
+}
+
+@media (pointer: coarse) {
+  .tilt-target {
+    transform: none !important;
+  }
+}
