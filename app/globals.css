@@ -180,8 +180,24 @@ body {
   50%      { transform: translateY(-12px); }
 }
 
+@keyframes float-coin-drift {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(8px, -14px) rotate(-3deg);
+  }
+  66% {
+    transform: translate(-6px, 8px) rotate(2deg);
+  }
+}
+
 .float-slow  { animation: float-y 5s ease-in-out infinite; }
 .float-fast  { animation: float-y 3.5s ease-in-out infinite; }
+
+.float-coin {
+  animation: float-coin-drift 7s ease-in-out infinite;
+}
 
 /* ============================================
    3D STAGE

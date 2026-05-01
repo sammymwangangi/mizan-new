@@ -29,7 +29,7 @@ export default function PhoneStage() {
       if (!stage || !phone || !coin || !arrow) return;
       if (window.matchMedia("(pointer: coarse)").matches) return;
 
-      const PHONE_TILT = 9;
+      const PHONE_TILT = 5;
       const COIN_PARALLAX = 32;
       const ARROW_PARALLAX = 20;
 
