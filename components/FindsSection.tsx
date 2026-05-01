@@ -113,7 +113,7 @@ export default function FindsSection() {
             <div className="h-[420px] lg:h-[429px]">
               <PaymentLinkCard />
             </div>
-            <div className="h-[420px] lg:h-[440px]">
+            <div className="h-[420px] lg:h-[450px]">
               <ChangeGrowsCard />
             </div>
           </div>

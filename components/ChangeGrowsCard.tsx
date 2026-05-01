@@ -12,11 +12,12 @@ export default function ChangeGrowsCard() {
   return (
     <div className="glass-card relative h-full w-full overflow-hidden rounded-[24px] p-6 md:p-7">
       {/* Decorative coin — peeks from bottom-left, very dimmed */}
-      <div className="float-coin pointer-events-none absolute -bottom-12 -left-20 h-[260px] w-[260px] opacity-25">
+      <div className="float-coin pointer-events-none absolute top-10 -left-8 h-[260px] w-[260px] opacity-75">
         <Image
           src="/assets/section2/coin-decor.png"
           alt=""
-          fill
+          width={260}
+          height={260}
           className="object-contain"
           aria-hidden
         />
