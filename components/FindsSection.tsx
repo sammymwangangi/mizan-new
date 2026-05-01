@@ -19,69 +19,7 @@ import ChangeGrowsCard from "./ChangeGrowsCard";
  */
 export default function FindsSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[--color-bg] py-24 md:py-32">
-      {/* === AURORA LIGHTS === */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Left flank — cyan/teal */}
-        <div
-          className="aurora-blob"
-          style={{
-            width: "640px",
-            height: "640px",
-            top: "-100px",
-            left: "-180px",
-            background:
-              "radial-gradient(circle at 50% 50%, rgba(92,225,255,0.55) 0%, rgba(124,92,255,0.22) 40%, transparent 70%)",
-            animation:
-              "aurora-drift-1 16s ease-in-out infinite, aurora-pulse 9s ease-in-out infinite",
-          }}
-        />
-
-        {/* Right flank — magenta/pink */}
-        <div
-          className="aurora-blob"
-          style={{
-            width: "640px",
-            height: "640px",
-            top: "-100px",
-            right: "-180px",
-            background:
-              "radial-gradient(circle at 50% 50%, rgba(255,107,184,0.55) 0%, rgba(186,133,255,0.22) 40%, transparent 70%)",
-            animation:
-              "aurora-drift-2 18s ease-in-out infinite, aurora-pulse 11s ease-in-out infinite 2s",
-          }}
-        />
-
-        {/* Mid-left wash — supports the cooking-card area */}
-        <div
-          className="aurora-blob"
-          style={{
-            width: "560px",
-            height: "560px",
-            top: "40%",
-            left: "-120px",
-            background:
-              "radial-gradient(circle at 50% 50%, rgba(167,139,250,0.45) 0%, rgba(124,92,255,0.18) 45%, transparent 70%)",
-            animation:
-              "aurora-drift-3 19s ease-in-out infinite, aurora-pulse 8s ease-in-out infinite 1s",
-          }}
-        />
-
-        {/* Mid-right wash — supports the right-column cards */}
-        <div
-          className="aurora-blob"
-          style={{
-            width: "560px",
-            height: "560px",
-            top: "45%",
-            right: "-120px",
-            background:
-              "radial-gradient(circle at 50% 50%, rgba(255,138,200,0.45) 0%, rgba(186,133,255,0.18) 45%, transparent 70%)",
-            animation:
-              "aurora-drift-4 21s ease-in-out infinite, aurora-pulse 10s ease-in-out infinite 3s",
-          }}
-        />
-      </div>
+    <section className="relative w-full py-24 md:py-32">
 
       {/* === CONTENT === */}
       <div className="relative z-10 mx-auto w-full max-w-[1376px] px-6 md:px-0 lg:px-2">

@@ -62,7 +62,7 @@ export default function ChangeGrowsCard() {
       </div>
 
       {/* The animated graph — right-aligned, fills lower-right */}
-      <div className="absolute bottom-5 right-5 z-10 w-[62%] max-w-[420px]">
+      <div className="absolute bottom-0 right-5 z-10 w-[62%] max-w-[420px]">
         <GrowthGraph />
       </div>
     </div>

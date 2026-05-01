@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[--color-bg] px-4 py-4 md:px-6 md:py-6 lg:px-8 lg:py-8"
+      className="relative w-full px-4 py-4 md:px-6 md:py-6 lg:px-8 lg:py-8"
     >
       {/* THE HERO GLASS CARD.
           Has a fixed height on lg+ so the phone has a known canvas to bleed against.
@@ -33,7 +33,6 @@ export default function Hero() {
       <div className="glass-card glass-card--hero relative mx-auto w-full max-w-[1376px] overflow-hidden rounded-[36px] min-h-[814px] lg:h-[814px]">
         {/* Backdrop layer: pattern + aurora lights inside the glass */}
         <DecorPattern />
-        <AuroraLights />
 
         {/* Navbar — top of card */}
         <Navbar />
