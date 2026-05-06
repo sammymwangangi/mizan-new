@@ -29,13 +29,13 @@ export default function FindsSection() {
             className="font-bold leading-[1.05] tracking-[-0.02em] text-white"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            Mizan finds what you
+            Built for the Day Zero investor.
             <br />
-            won&rsquo;t miss.
+            Set and forget.
           </h2>
           <p className="mx-auto mt-5 max-w-[600px] text-[15px] leading-[1.7] text-white/65 md:text-[16px]">
-            Tiny everyday spend can quietly become halal saving, investing, and
-            giving. Your future self will thank you.
+            No big deposit. No market homework. Just everyday spending
+            turned into steady growth — quietly in the background.
           </p>
         </header>
 
