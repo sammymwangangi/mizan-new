@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import FindsSection from "@/components/FindsSection";
 import PageBackground from "@/components/PageBackground";
+import HowMizanWorks from "@/components/HowMizanWorks";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <FindsSection />
+        <HowMizanWorks />
       </div>
     </main>
   );

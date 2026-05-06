@@ -162,6 +162,34 @@ export default function PageBackground() {
             "aurora-drift-4 21s ease-in-out infinite, aurora-pulse 10s ease-in-out infinite 3s",
         }}
       />
+
+      {/* TIER 5 — behind HowMizanWorks pinned section */}
+      <div
+        className="aurora-blob"
+        style={{
+          width: "720px",
+          height: "720px",
+          top: "200vh",
+          left: "-220px",
+          background:
+            "radial-gradient(circle at 50% 50%, rgba(177,78,255,0.45) 0%, rgba(124,92,255,0.20) 40%, transparent 70%)",
+          animation:
+            "aurora-drift-1 19s ease-in-out infinite, aurora-pulse 10s ease-in-out infinite 2s",
+        }}
+      />
+      <div
+        className="aurora-blob"
+        style={{
+          width: "640px",
+          height: "640px",
+          top: "230vh",
+          right: "-180px",
+          background:
+            "radial-gradient(circle at 50% 50%, rgba(255,107,184,0.40) 0%, rgba(186,133,255,0.18) 40%, transparent 70%)",
+          animation:
+            "aurora-drift-2 22s ease-in-out infinite, aurora-pulse 11s ease-in-out infinite 4s",
+        }}
+      />
     </div>
   );
 }
