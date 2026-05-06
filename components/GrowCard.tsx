@@ -101,10 +101,9 @@ export default function GrowCard() {
             transformOrigin: "top left",
           }}
         >
-          
           {/* Ray 3 — thicker, softer */}
           <div
-            className="absolute"
+            className="absolute animate-ray-shimmer-1"
             style={{
               top: "200px",
               left: "10px",
@@ -117,7 +116,7 @@ export default function GrowCard() {
           />
 
           <div
-            className="absolute"
+            className="absolute animate-ray-shimmer-2"
             style={{
               top: "130px",
               left: "20px",
@@ -130,7 +129,7 @@ export default function GrowCard() {
           />
 
           <div
-            className="absolute"
+            className="absolute animate-ray-shimmer-3"
             style={{
               top: "80px",
               left: "20px",
@@ -141,7 +140,6 @@ export default function GrowCard() {
               filter: "blur(5px)",
             }}
           />
-          
         </div>
 
         {/* Soft corner bloom — anchors the rays at the source */}
