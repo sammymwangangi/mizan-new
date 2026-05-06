@@ -93,66 +93,55 @@ export default function GrowCard() {
         <div
           className="absolute"
           style={{
-            top: "-20px",
-            left: "-20px",
-            width: "900px",
-            height: "500px",
-            transform: "rotate(-20deg)",
+            top: "-420px",
+            left: "120px",
+            width: "700px",
+            height: "10px",
+            transform: "rotate(60deg)",
             transformOrigin: "top left",
           }}
         >
-          {/* Ray 1 — brightest, narrow */}
-          <div
-            className="absolute"
-            style={{
-              top: "120px",
-              left: "0",
-              width: "800px",
-              height: "10px",
-              background:
-                "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.85) 50%, transparent 100%)",
-              filter: "blur(4px)",
-            }}
-          />
-          {/* Ray 2 — slightly offset, thinner */}
-          <div
-            className="absolute"
-            style={{
-              top: "165px",
-              left: "20px",
-              width: "780px",
-              height: "6px",
-              background:
-                "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%)",
-              filter: "blur(3px)",
-            }}
-          />
+          
           {/* Ray 3 — thicker, softer */}
           <div
             className="absolute"
             style={{
               top: "200px",
               left: "10px",
-              width: "820px",
-              height: "16px",
+              width: "500px",
+              height: "40px",
               background:
                 "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.55) 50%, transparent 95%)",
               filter: "blur(8px)",
             }}
           />
-          {/* Ray 4 — outermost, faintest */}
+
           <div
             className="absolute"
             style={{
-              top: "260px",
-              left: "30px",
-              width: "740px",
-              height: "8px",
+              top: "130px",
+              left: "20px",
+              width: "560px",
+              height: "40px",
               background:
-                "linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.4) 50%, transparent 90%)",
+                "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.55) 50%, transparent 95%)",
+              filter: "blur(8px)",
+            }}
+          />
+
+          <div
+            className="absolute"
+            style={{
+              top: "80px",
+              left: "20px",
+              width: "620px",
+              height: "40px",
+              background:
+                "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.55) 50%, transparent 80%)",
               filter: "blur(5px)",
             }}
           />
+          
         </div>
 
         {/* Soft corner bloom — anchors the rays at the source */}
@@ -160,7 +149,7 @@ export default function GrowCard() {
           className="absolute"
           style={{
             top: "-60px",
-            left: "-60px",
+            left: "-10px",
             width: "320px",
             height: "320px",
             background:
