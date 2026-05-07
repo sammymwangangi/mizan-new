@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import FindsSection from "@/components/FindsSection";
 import PageBackground from "@/components/PageBackground";
 import HowMizanWorks from "@/components/HowMizanWorks";
+import BankGradeTrustSection from "@/components/BankGradeTrustSection";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Hero />
         <FindsSection />
         <HowMizanWorks />
+        <BankGradeTrustSection />
       </div>
     </main>
   );

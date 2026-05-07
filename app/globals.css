@@ -296,3 +296,59 @@ body {
     animation: none;
   }
 }
+
+/* ============================================
+   SECTION 4 — VAULT LIGHT SWEEP
+   A sharp diagonal beam crosses the whole section
+   every ~7 seconds, then waits before repeating.
+   Built as a thin tilted gradient strip animated
+   from off-screen-left to off-screen-right.
+   ============================================ */
+@keyframes light-sweep-animation {
+  0%, 100% {
+    transform: translateX(-30%) rotate(20deg);
+    opacity: 0;
+  }
+  /* Build up between 5% and 10% */
+  8% {
+    opacity: 0.85;
+  }
+  /* Sweep across between 10% and 25% */
+  25% {
+    transform: translateX(130%) rotate(20deg);
+    opacity: 0.85;
+  }
+  /* Fade out and stay invisible until next cycle */
+  30% {
+    opacity: 0;
+    transform: translateX(130%) rotate(20deg);
+  }
+}
+
+.light-sweep {
+  position: absolute;
+  /* Position covers the whole section diagonally */
+  top: -50%;
+  left: 0;
+  width: 30%;       /* The beam itself is narrow (30% of section width) */
+  height: 200%;     /* Tall enough to sweep edge to edge after rotation */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(255, 255, 255, 0.05) 60%,
+    transparent 100%
+  );
+  filter: blur(6px);
+  mix-blend-mode: screen;
+  animation: light-sweep-animation 7s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light-sweep {
+    animation: none;
+    opacity: 0;
+  }
+}
