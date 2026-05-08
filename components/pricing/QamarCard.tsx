@@ -35,55 +35,12 @@ export default function QamarCard() {
         background:
           "linear-gradient(151.79deg, rgba(111, 0, 177, 0.1) 0%, rgba(174, 99, 230, 0.6) 34.05%, rgba(66, 16, 62, 0.7) 68.18%, #220418 98.87%)",
         border: "1px solid #F3E8FF1F",
-        backdropFilter: "blur(20px) saturate(150%)",
-        WebkitBackdropFilter: "blur(20px) saturate(150%)",
+        backdropFilter: "blur(1px) saturate(150%)",
+        WebkitBackdropFilter: "blur(1px) saturate(150%)",
         boxShadow:
           "0 24px 60px -20px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.10)",
       }}
     >
-      {/* Top-left light rays — same recipe as Noor */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-0 top-0 z-0 h-full w-full overflow-hidden"
-        style={{ borderRadius: "28px" }}
-      >
-        <div
-          className="absolute"
-          style={{
-            top: "-280px",
-            left: "60px",
-            width: "500px",
-            height: "10px",
-            transform: "rotate(60deg)",
-            transformOrigin: "top left",
-          }}
-        >
-          <div
-            className="absolute animate-ray-shimmer-1"
-            style={{
-              top: "120px",
-              left: "10px",
-              width: "350px",
-              height: "30px",
-              background:
-                "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.45) 50%, transparent 95%)",
-              filter: "blur(7px)",
-            }}
-          />
-          <div
-            className="absolute animate-ray-shimmer-2"
-            style={{
-              top: "70px",
-              left: "20px",
-              width: "400px",
-              height: "30px",
-              background:
-                "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.45) 50%, transparent 95%)",
-              filter: "blur(7px)",
-            }}
-          />
-        </div>
-      </div>
 
       {/* Square pattern — sits behind/near the "month" word, subtle */}
       <div
