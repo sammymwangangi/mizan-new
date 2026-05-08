@@ -174,16 +174,16 @@ export default function ShamsCard() {
         </div>
 
         {/* Divider */}
-        <div className="mt-5 h-px w-full bg-white/35" />
+        <div className="mt-5 h-px w-full bg-[#D39C90]" />
 
         {/* What You Get */}
-        <p className="mt-6 text-[18px] font-medium text-white/85">What You Get</p>
+        <p className="mt-6 text-[18px] font-medium text-white">What You Get</p>
         <ul className="mt-3 flex flex-col gap-2.5">
           {SHAMS_FEATURES.map((feature, i) => {
             const isLink = typeof feature !== "string";
             return (
               <li key={i} className="flex items-start gap-2.5">
-                <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-white/40">
+                <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#A3A3A3]">
                   <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
                     <path
                       d="M2 4.5 L4 6.5 L7 2.5"
@@ -194,7 +194,7 @@ export default function ShamsCard() {
                     />
                   </svg>
                 </div>
-                <span className="text-[16px] leading-normal text-white/90">
+                <span className="text-[14px] leading-normal text-white">
                   {isLink ? (
                     <>
                       {feature.text}

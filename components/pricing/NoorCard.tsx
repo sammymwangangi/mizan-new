@@ -41,14 +41,14 @@ export default function NoorCard() {
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col p-7 lg:p-8">
         {/* Plan name + tagline */}
-        <h3 className="text-[26px] font-bold text-white">Noor</h3>
-        <p className="mt-1 text-[14px] italic text-white/85">
+        <h3 className="text-[36px] font-medium text-white">Noor</h3>
+        <p className="mt-1 text-[20px] italic font-medium text-white/85">
           The spark of a new habit.
         </p>
 
         {/* Price */}
         <div className="mt-7">
-          <span className="text-[44px] font-bold leading-none text-white">
+          <span className="text-[48px] font-medium leading-none text-white">
             Free
           </span>
         </div>
@@ -57,7 +57,7 @@ export default function NoorCard() {
         <div className="mt-6 h-px w-full bg-white/15" />
 
         {/* What You Get */}
-        <p className="mt-6 text-[14px] font-medium text-white/85">What You Get</p>
+        <p className="mt-5 text-[18px] text-white">What You Get</p>
         <ul className="mt-3 flex flex-col gap-2.5">
           {NOOR_FEATURES.map((feature) => (
             <li key={feature} className="flex items-start gap-2.5">
@@ -73,7 +73,7 @@ export default function NoorCard() {
                   />
                 </svg>
               </div>
-              <span className="text-[13px] leading-[1.5] text-white/90">
+              <span className="text-[14px] leading-normal text-white">
                 {feature}
               </span>
             </li>
@@ -86,13 +86,13 @@ export default function NoorCard() {
         {/* CTA button */}
         <a
           href="#start-free"
-          className="group relative flex items-center justify-center rounded-full border border-white/25 px-6 py-3.5 text-[14px] font-medium text-white bg-[#00000033] transition-all duration-300  hover:bg-white/10 hover:-translate-y-0.5"
+          className="group relative flex items-center justify-center rounded-full border border-white/25 px-6 py-3.5 text-[18px] font-medium text-white bg-[#00000033] transition-all duration-300  hover:bg-white/10 hover:-translate-y-0.5"
         >
           Start Free
         </a>
 
         {/* Footer caption */}
-        <p className="mt-3 text-center text-[11px] italic text-white/55">
+        <p className="mt-3 text-center text-[12px] italic text-[#A4A4A4]">
           Forever. No card required.
         </p>
       </div>

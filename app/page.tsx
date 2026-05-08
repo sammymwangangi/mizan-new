@@ -5,6 +5,7 @@ import HowMizanWorks from "@/components/HowMizanWorks";
 import BankGradeTrustSection from "@/components/BankGradeTrustSection";
 import MeetRobinSection from "@/components/MeetRobinSection";
 import PricingSection from "@/components/pricing/PricingSection";
+import OwnFutureSection from "@/components/OwnFutureSection";
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <BankGradeTrustSection />
         <MeetRobinSection />
         <PricingSection />
+        <OwnFutureSection />
       </div>
     </main>
   );

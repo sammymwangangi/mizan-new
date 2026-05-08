@@ -67,7 +67,7 @@ export default function QamarCard() {
       <div className="relative z-10 flex h-full flex-col p-7 lg:p-8">
         {/* Plan name + tagline */}
         <h3 className="text-[36px] font-medium text-white">Qamar</h3>
-        <p className="mt-1 text-[20px] italic font-medium text-white/85">
+        <p className="mt-1 text-[20px] italic font-medium text-white">
           For building with more guidance
         </p>
 
@@ -77,24 +77,24 @@ export default function QamarCard() {
             <span className="text-[32px] font-medium leading-none text-white">
               KES 350
             </span>
-            <span className="text-[32px] font-medium text-white/85">
+            <span className="text-[32px] font-medium text-white">
               /month
             </span>
           </div>
-          <p className="mt-1 text-[15px] italic font-medium text-white/70">
+          <p className="mt-1 text-[15px] italic font-medium text-white">
             (one month on us)
           </p>
         </div>
 
         {/* Divider */}
-        <div className="mt-5 h-px w-full bg-white/15" />
+        <div className="mt-5 h-px w-full bg-[#E0D2FF]" />
 
         {/* What You Get */}
-        <p className="mt-6 text-[14px] font-medium text-white/85">What You Get</p>
+        <p className="mt-4 text-[18px] text-white">What You Get</p>
         <ul className="mt-3 flex flex-col gap-2.5">
           {QAMAR_FEATURES.map((feature) => (
             <li key={feature} className="flex items-start gap-2.5">
-              <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-white/40">
+              <div className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#A3A3A3]">
                 <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
                   <path
                     d="M2 4.5 L4 6.5 L7 2.5"
@@ -105,7 +105,7 @@ export default function QamarCard() {
                   />
                 </svg>
               </div>
-              <span className="text-[13px] leading-[1.5] text-white/90">
+              <span className="text-[14px] leading-normal text-white">
                 {feature}
               </span>
             </li>
@@ -118,13 +118,13 @@ export default function QamarCard() {
         {/* CTA — solid white pill (Qamar is the featured tier) */}
         
         <a  href="#unlock-qamar"
-          className="group relative flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-[15px] font-semibold text-[#1B1C39] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.5)]"
+          className="group relative flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-[18px] font-medium text-[#0E0E0E] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.5)]"
         >
           Unlock Qamar
         </a>
 
         {/* Footer caption — two lines */}
-        <p className="mt-3 text-center text-[11px] italic leading-[1.5] text-white/55">
+        <p className="mt-3 text-center text-[12px] italic leading-normal text-[#A4A4A4]">
           ~$2.70 USD. Change or cancel anytime.
           <br />
           Capital at risk.
