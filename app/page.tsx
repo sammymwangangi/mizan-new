@@ -8,6 +8,7 @@ import PricingSection from "@/components/pricing/PricingSection";
 import OwnFutureSection from "@/components/OwnFutureSection";
 import PartnersMarquee from "@/components/PartnersMarquee";
 import EarlyAccessSection from "@/components/early-access/EarlyAccessSection";
+import Footer from "@/components/footer/Footer";
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         <OwnFutureSection />
         <PartnersMarquee />
         <EarlyAccessSection />
+        <Footer />
       </div>
     </main>
   );
