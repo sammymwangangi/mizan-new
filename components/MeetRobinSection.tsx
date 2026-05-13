@@ -229,7 +229,7 @@ export default function MeetRobinSection() {
                 alt="Mizan portfolio with Robin AI assistant"
                 width={520}
                 height={720}
-                className="block h-auto w-full max-w-[520px] object-contain"
+                className="block h-[600px] md:h-[720px] lg:h-[600px] w-full max-w-[520px] object-contain"
                 priority={false}
                 loading="lazy"
               />

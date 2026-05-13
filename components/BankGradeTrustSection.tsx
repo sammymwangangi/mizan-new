@@ -142,6 +142,31 @@ export default function BankGradeTrustSection() {
             Protected by security standards trusted by leading global financial
             institutions.
           </p>
+
+          {/* CTA button — with heart-beat ripple */}
+          <div className="mt-10">
+            <a
+              href="#robin-helps"
+              className="ripple-btn group relative inline-flex items-center gap-3 rounded-full bg-bg px-7 py-4 text-[15px] font-medium text-white transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              <span className="relative z-10">How Robin helps</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                className="relative z-10 transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path
+                  d="M3 8h10m0 0L9 4m4 4l-4 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>

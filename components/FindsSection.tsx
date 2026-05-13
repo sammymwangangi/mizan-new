@@ -19,7 +19,7 @@ import ChangeGrowsCard from "./ChangeGrowsCard";
  */
 export default function FindsSection() {
   return (
-    <section className="relative w-full py-24 md:py-32">
+    <section className="relative w-full py-24 md:py-8">
 
       {/* === CONTENT === */}
       <div className="relative z-10 mx-auto w-full max-w-[1376px] px-6 md:px-0 lg:px-2">

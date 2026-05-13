@@ -115,7 +115,7 @@ export default function HowMizanWorks() {
         ref={stickyRef}
         className="relative flex h-screen w-full flex-col items-center overflow-hidden"
       >
-        <div className="relative z-50 mt-20 text-center md:mt-24">
+        <div className="relative z-50 mt-20 text-center md:mt-4">
           <h2
             className="font-bold leading-[1.05] tracking-[-0.02em] text-white"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
@@ -127,7 +127,7 @@ export default function HowMizanWorks() {
           </p>
         </div>
 
-        <div className="relative z-10 mt-12 w-full px-6 md:mt-16">
+        <div className="relative z-10 mt-12 w-full px-6 md:mt-6">
           <div className="relative mx-auto h-[560px] w-full max-w-[1062px]">
             <GrowCard />
             <SpendCard />
