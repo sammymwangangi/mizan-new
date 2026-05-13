@@ -43,7 +43,7 @@ export default function Hero() {
             <h1
               data-anim="heading"
               className="font-light leading-[1.08] tracking-tight text-white"
-              style={{ fontSize: "clamp(1.85rem, 3vw, 40px)" }}
+              style={{ fontSize: "clamp(1.85rem, 3vw, 36px)" }}
             >
               From spare change to big change.
             </h1>
@@ -51,14 +51,14 @@ export default function Hero() {
             <h2
               data-anim="subheading"
               className="mt-2 font-bold leading-[1.08] tracking-tight text-white"
-              style={{ fontSize: "clamp(1.85rem, 4vw, 3.4rem)" }}
+              style={{ fontSize: "clamp(1.85rem, 4vw, 3rem)" }}
             >
               Halal wealth on autopilot.
             </h2>
 
             <p
               data-anim="copy"
-              className="mt-10 max-w-[440px] text-[15px] leading-[1.7] text-white md:text-[16px] xl:mt-17 xl:max-w-[480px] xl:text-[18px]"
+              className="mt-10 max-w-[550px] text-[15px] leading-[1.7] text-white md:text-[16px] xl:mt-17 xl:max-w-[480px] xl:text-[18px]"
             >
               Mizan turns everyday spend into automated investments, helping you
               grow consistently through screened, values-aligned portfolios.
