@@ -28,37 +28,9 @@ export default function PageBackground() {
     >
       {/* ============================================
           TIER 1 — top of page, behind Hero
+          AuroraLights component handles the left-side
+          halo + bleed, so no blobs needed here.
           ============================================ */}
-
-      {/* MAIN HERO LIGHT — top-left, behind headline */}
-      <div
-        className="aurora-blob"
-        style={{
-          width: "820px",
-          height: "820px",
-          top: "-200px",
-          left: "-240px",
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(124,92,255,0.85) 0%, rgba(124,92,255,0.35) 40%, transparent 70%)",
-          animation:
-            "aurora-drift-1 14s ease-in-out infinite, aurora-pulse 7s ease-in-out infinite",
-        }}
-      />
-
-      {/* MID-LEFT VIOLET BLOOM */}
-      <div
-        className="aurora-blob"
-        style={{
-          width: "560px",
-          height: "560px",
-          top: "20%",
-          left: "-100px",
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(167,139,250,0.55) 0%, rgba(124,92,255,0.25) 45%, transparent 70%)",
-          animation:
-            "aurora-drift-3 17s ease-in-out infinite, aurora-pulse 9s ease-in-out infinite 2s",
-        }}
-      />
 
       {/* ============================================
           TIER 2 — between Hero and FindsSection

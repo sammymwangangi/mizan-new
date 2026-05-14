@@ -1,85 +1,86 @@
+"use client";
+
 /**
- * AuroraLights — v6
- * -----------------
- * True aurora effect: colour cycling, opacity breathing, larger drift movement.
- * Uses `screen` blend mode (works against any background) instead of plus-lighter.
+ * AuroraLights
+ * ------------
+ * Left-side atmospheric glow matching the Figma design:
+ *   - Cool periwinkle/violet halo at the top-left (behind Hero headline)
+ *   - Teal/cyan wash trailing down into FindsSection
  *
- * Each blob has TWO simultaneous animations:
- *   1. Position drift (translate3d) — slow, organic movement
- *   2. Opacity + hue pulse (filter) — faster, gives the "alive" feeling
+ * Sits in page.tsx as an absolute layer (z-index 1) so it bleeds across
+ * both sections. PageBackground owns everything from Tier 2 downward.
  */
 export default function AuroraLights() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      className="pointer-events-none absolute"
+      style={{
+        top: 0,
+        left: 0,
+        width: "900px",
+        height: "1560px",
+        zIndex: 1,
+        overflow: "hidden",
+      }}
     >
-      {/* MAIN HERO LIGHT — top-left, behind headline */}
-      <div
-        className="aurora-blob aurora-pulse-1"
-        style={{
-          width: "820px",
-          height: "820px",
-          top: "-200px",
-          left: "-240px",
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(124,92,255,0.85) 0%, rgba(124,92,255,0.35) 40%, transparent 70%)",
-          animation:
-            "aurora-drift-1 14s ease-in-out infinite, aurora-pulse 7s ease-in-out infinite",
-        }}
-      />
-
-      {/* MID-LEFT VIOLET BLOOM */}
+      {/* PRIMARY HALO — large, soft periwinkle bloom at top-left corner */}
       <div
         className="aurora-blob"
         style={{
-          width: "560px",
-          height: "560px",
-          top: "30%",
-          left: "-100px",
+          width: "860px",
+          height: "860px",
+          top: "-260px",
+          left: "-280px",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(167,139,250,0.55) 0%, rgba(124,92,255,0.25) 45%, transparent 70%)",
+            "radial-gradient(ellipse at 45% 45%, rgba(110,85,240,0.50) 0%, rgba(124,92,255,0.22) 42%, transparent 70%)",
           animation:
-            "aurora-drift-3 17s ease-in-out infinite, aurora-pulse 9s ease-in-out infinite 2s",
+            "aurora-drift-1 16s ease-in-out infinite, aurora-pulse 8s ease-in-out infinite",
         }}
       />
 
-      {/* LOW-LEFT PINK WASH */}
+      {/* INNER CORE — tighter, slightly brighter cool-violet centre */}
       <div
         className="aurora-blob"
         style={{
-          width: "560px",
-          height: "560px",
-          bottom: "-160px",
-          left: "-80px",
+          width: "420px",
+          height: "420px",
+          top: "20px",
+          left: "-120px",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(255,107,184,0.55) 0%, rgba(186,133,255,0.25) 40%, transparent 70%)",
+            "radial-gradient(ellipse at 50% 50%, rgba(150,120,255,0.42) 0%, rgba(124,92,255,0.16) 38%, transparent 70%)",
           animation:
-            "aurora-drift-2 19s ease-in-out infinite, aurora-pulse 11s ease-in-out infinite 4s",
+            "aurora-drift-3 12s ease-in-out infinite, aurora-pulse 7s ease-in-out infinite 1s",
         }}
       />
 
-      {/* CENTRE INDIGO HAZE — quiet bridge */}
+      {/* TEAL TRANSITION — bleeds from the base of the Hero into FindsSection */}
       <div
         className="aurora-blob"
         style={{
-          width: "480px",
-          height: "480px",
-          top: "35%",
-          left: "32%",
+          width: "680px",
+          height: "680px",
+          top: "620px",
+          left: "-200px",
           background:
-            "radial-gradient(circle at 50% 50%, rgba(91,95,255,0.40) 0%, rgba(91,95,255,0.12) 50%, transparent 70%)",
+            "radial-gradient(circle at 50% 50%, rgba(92,225,255,0.38) 0%, rgba(80,190,220,0.15) 45%, transparent 70%)",
           animation:
-            "aurora-drift-4 21s ease-in-out infinite, aurora-pulse 8s ease-in-out infinite 1s",
+            "aurora-drift-2 20s ease-in-out infinite, aurora-pulse 10s ease-in-out infinite 3s",
         }}
       />
 
-      {/* Vignette */}
+      {/* VIOLET BRIDGE — links the violet halo to the teal bloom below */}
       <div
-        className="absolute inset-0"
+        className="aurora-blob"
         style={{
+          width: "500px",
+          height: "500px",
+          top: "380px",
+          left: "-140px",
           background:
-            "radial-gradient(ellipse 110% 80% at 35% 50%, transparent 30%, rgba(15,16,40,0.45) 100%)",
+            "radial-gradient(circle at 50% 50%, rgba(124,92,255,0.22) 0%, rgba(92,225,255,0.10) 50%, transparent 70%)",
+          animation:
+            "aurora-drift-3 18s ease-in-out infinite, aurora-pulse 9s ease-in-out infinite 2s",
         }}
       />
     </div>
