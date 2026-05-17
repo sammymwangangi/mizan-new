@@ -53,7 +53,7 @@ export default function Hero() {
               className="mt-2 font-bold leading-[1.08] tracking-tight text-white"
               style={{ fontSize: "clamp(1.85rem, 4vw, 3rem)" }}
             >
-              Halal wealth on autopilot.
+              Wealth on autopilot.
             </h2>
 
             <p

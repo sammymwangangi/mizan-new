@@ -31,7 +31,7 @@ export default function PhoneStage() {
       {/* Floating coin — positioned relative to phone, scales down at lg */}
       <div
         data-anim="float-coin"
-        className="float-slow absolute z-10 left-[20px] top-[260px] lg:top-80 xl:left-[30px] xl:top-80"
+        className="absolute z-10 left-[20px] top-[260px] lg:top-80 xl:left-[30px] xl:top-80"
         style={{ willChange: "transform" }}
       >
         <Image

@@ -17,10 +17,10 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-[--color-bg]">
 
-      <div>
+      <div aria-hidden className="pointer-events-none">
         <Image
           src="/assets/right-light-hero.svg"
-          alt="Light blob"
+          alt=""
           width={858}
           height={1344}
           className="absolute top-0 right-0 z-20"

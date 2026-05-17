@@ -20,7 +20,7 @@
   --color-magenta: #BA85FF;
   --color-indigo: #5B5FFF;
 
-  --color-glass: rgba(255, 255, 255, 0.04);
+  --color-glass: rgba(255, 255, 255, 0.06);
   --color-glass-border: rgba(255, 255, 255, 0.10);
   --color-glass-strong: rgba(255, 255, 255, 0.08);
 
@@ -34,8 +34,9 @@
                   0 8px 24px -8px rgba(124, 92, 255, 0.25),
                   inset 0 1px 0 rgba(255, 255, 255, 0.08);
   --shadow-glass-large: 0 60px 120px -40px rgba(0, 0, 0, 0.7),
-                        0 30px 80px -20px rgba(124, 92, 255, 0.30),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+                        0 30px 80px -20px rgba(124, 92, 255, 0.55),
+                        0 0 0 1px rgba(124, 92, 255, 0.18),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 /* ============================================
@@ -119,11 +120,20 @@ body {
 .glass-card {
   position: relative;
   background: var(--color-glass);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-glass);
   isolation: isolate;
+}
+
+.glass-card.glass-card--hero {
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.06) 38%,
+    rgba(0, 0, 0, 0.02) 100%
+  );
 }
 
 .glass-card::before {
@@ -166,10 +176,29 @@ body {
 
 .glass-card.glass-card--hero::before {
   animation-duration: 8s;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    transparent 180deg,
+    rgba(124, 92, 255, 1) 250deg,
+    rgba(255, 107, 184, 1) 285deg,
+    rgba(92, 225, 255, 1) 315deg,
+    transparent 360deg
+  );
 }
 
 .glass-card.glass-card--hero {
   box-shadow: var(--shadow-glass-large);
+}
+
+.glass-card::after {
+  top: 0; left: 5%; right: 5%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent);
 }
 
 /* ============================================
