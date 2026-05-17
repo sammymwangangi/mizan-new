@@ -1,6 +1,11 @@
 import Image from "next/image";
 
-const NAV_ITEMS = ["Personal", "Business", "Intelligence Labs", "About Us"];
+const NAV_ITEMS = [
+  { label: "Personal", href: "#" },
+  { label: "Business", href: "https://sprout-sticky-49845851.figma.site" },
+  { label: "Intelligence Labs", href: "#" },
+  { label: "About Us", href: "#" }
+];
 
 /**
  * Navbar — v3
@@ -29,12 +34,12 @@ export default function Navbar() {
       {/* Center nav */}
       <ul className="hidden items-center gap-10 md:flex">
         {NAV_ITEMS.map((item) => (
-          <li key={item}>
+          <li key={item.label}>
             <a
-              href="#"
+              href={item.href}
               className="text-[15px] font-light text-white/85 transition-colors duration-200 hover:text-white"
             >
-              {item}
+              {item.label}
             </a>
           </li>
         ))}
