@@ -34,7 +34,7 @@ export default function ConnectCard() {
       data-card="connect"
       className="absolute inset-x-0 top-0 mx-auto h-[560px] w-full max-w-[1062px] overflow-hidden rounded-[28px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.55)]"
       style={{
-        zIndex: 3,
+        zIndex: 1,
         transformOrigin: "top center",
         background: CARD_GRADIENT,
       }}

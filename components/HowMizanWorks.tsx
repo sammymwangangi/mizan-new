@@ -53,7 +53,7 @@ export default function HowMizanWorks() {
       const connect = section.querySelector<HTMLElement>("[data-card='connect']");
       if (!grow || !spend || !connect) return;
 
-      const cards = [grow, spend, connect];
+      const cards = [connect, spend, grow];
 
       cards.forEach((card, i) => {
         gsap.set(card, { yPercent: i === 0 ? 0 : 110, scale: 1, y: 0 });
@@ -71,24 +71,24 @@ export default function HowMizanWorks() {
         },
       });
 
-      // Transition 1: Spend slides in, Grow recedes
+      // Transition 1: Spend slides in, Connect recedes
       tl.to(spend, { yPercent: 0, duration: SLIDE_DURATION, ease: "power2.inOut" }, 0);
-      tl.to(grow, {
+      tl.to(connect, {
         y: -PEEK_OFFSET,
         scale: 1 - SCALE_STEP,
         duration: SLIDE_DURATION,
         ease: "power2.inOut",
       }, 0);
 
-      // Transition 2 (final): Connect slides in, both Spend & Grow flatten back to y:0 + scale down
-      tl.to(connect, { yPercent: 0, duration: SLIDE_DURATION, ease: "power2.inOut" }, 1);
+      // Transition 2 (final): Grow slides in, both Spend & Connect flatten back to y:0 + scale down
+      tl.to(grow, { yPercent: 0, duration: SLIDE_DURATION, ease: "power2.inOut" }, 1);
       tl.to(spend, {
         y: 0,
         scale: 1 - SCALE_STEP,
         duration: SLIDE_DURATION,
         ease: "power2.inOut",
       }, 1);
-      tl.to(grow, {
+      tl.to(connect, {
         y: 0,
         scale: 1 - SCALE_STEP * 2,
         duration: SLIDE_DURATION,
@@ -129,9 +129,9 @@ export default function HowMizanWorks() {
 
         <div className="relative z-10 mt-12 w-full px-6 md:mt-6">
           <div className="relative mx-auto h-[560px] w-full max-w-[1062px]">
-            <GrowCard />
-            <SpendCard />
             <ConnectCard />
+            <SpendCard />
+            <GrowCard />
           </div>
         </div>
       </div>

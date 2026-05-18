@@ -12,7 +12,6 @@ import Image from "next/image";
 export default function PhoneStage() {
   return (
     <div
-      data-anim="phone"
       className="relative h-full w-full"
     >
       {/* iPhone — scales down at lg, full size at xl+ */}
@@ -30,8 +29,7 @@ export default function PhoneStage() {
 
       {/* Floating coin — positioned relative to phone, scales down at lg */}
       <div
-        data-anim="float-coin"
-        className="absolute z-10 left-[20px] top-[260px] lg:top-80 xl:left-[30px] xl:top-80"
+        className="absolute z-10 left-[60px] top-[260px] lg:top-90 xl:left-[100px] xl:top-90"
         style={{ willChange: "transform" }}
       >
         <Image
@@ -39,14 +37,13 @@ export default function PhoneStage() {
           alt=""
           width={170}
           height={170}
-          className="h-auto w-[120px] xl:w-[150px] drop-shadow-[0_24px_50px_rgba(124,92,255,0.45)]"
+          className="h-auto w-30 xl:w-35 drop-shadow-[0_24px_50px_rgba(124,92,255,0.45)]"
         />
       </div>
 
       {/* Floating arrow — same scaling pattern */}
       <div
-        data-anim="float-arrow"
-        className="float-fast absolute z-10 left-[140px] top-[200px] lg:top-80 xl:left-[180px] xl:top-60"
+        className="absolute z-10 left-[155px] top-[200px] lg:top-80 xl:left-[220px] xl:top-85 "
         style={{ willChange: "transform" }}
       >
         <Image

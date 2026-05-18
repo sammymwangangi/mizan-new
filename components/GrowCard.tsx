@@ -76,7 +76,7 @@ export default function GrowCard() {
       data-card="grow"
       className="absolute inset-x-0 top-0 mx-auto h-[560px] w-full max-w-[1062px] overflow-hidden rounded-[28px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.55)]"
       style={{
-        zIndex: 1,
+        zIndex: 3,
         transformOrigin: "top center",
         backgroundImage: "url('/assets/section3/grow-bg.png')",
         backgroundSize: "cover",
