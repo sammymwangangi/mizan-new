@@ -68,15 +68,14 @@ export default function BankGradeTrustSection() {
         }}
       />
 
-      {/* === SHARP DIAGONAL LIGHT SWEEP ===
-          A thin bright strip moves across the section every 6s.
-          Pure CSS keyframe animation — no JS overhead.
-          Mix-blend-mode: screen makes it brighten anything underneath. */}
+      {/* === VAULT SPOTLIGHT ===
+          A soft radial glow centred on the vault that slowly breathes,
+          simulating a stage light trained on the safe. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
       >
-        <div className="light-sweep" />
+        <div className="vault-spotlight" />
       </div>
 
       {/* === CONTENT GRID === */}

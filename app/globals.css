@@ -326,58 +326,41 @@ body {
 }
 
 /* ============================================
-   SECTION 4 — VAULT LIGHT SWEEP
-   A sharp diagonal beam crosses the whole section
-   every ~7 seconds, then waits before repeating.
-   Built as a thin tilted gradient strip animated
-   from off-screen-left to off-screen-right.
+   SECTION 4 — VAULT SPOTLIGHT
+   A soft radial glow centred on the vault that
+   slowly breathes, like a stage light trained on
+   the safe. No sweep — just ambient focus.
    ============================================ */
-@keyframes light-sweep-animation {
-  0%, 100% {
-    transform: translateX(-30%) rotate(20deg);
-    opacity: 0;
-  }
-  /* Build up between 5% and 10% */
-  8% {
-    opacity: 0.85;
-  }
-  /* Sweep across between 10% and 25% */
-  25% {
-    transform: translateX(130%) rotate(20deg);
-    opacity: 0.85;
-  }
-  /* Fade out and stay invisible until next cycle */
-  30% {
-    opacity: 0;
-    transform: translateX(130%) rotate(20deg);
-  }
+@keyframes vault-spotlight-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.08); }
 }
 
-.light-sweep {
+.vault-spotlight {
   position: absolute;
-  /* Position covers the whole section diagonally */
-  top: -50%;
-  left: 0;
-  width: 30%;       /* The beam itself is narrow (30% of section width) */
-  height: 200%;     /* Tall enough to sweep edge to edge after rotation */
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.05) 40%,
-    rgba(255, 255, 255, 0.65) 50%,
-    rgba(255, 255, 255, 0.05) 60%,
-    transparent 100%
+  /* Centre the spotlight over the left column where the vault sits */
+  top: 50%;
+  left: 25%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(220, 210, 255, 0.12) 30%,
+    transparent 70%
   );
-  filter: blur(6px);
+  filter: blur(40px);
   mix-blend-mode: screen;
-  animation: light-sweep-animation 7s ease-in-out infinite;
-  will-change: transform, opacity;
+  animation: vault-spotlight-pulse 4s ease-in-out infinite;
+  will-change: opacity, transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .light-sweep {
+  .vault-spotlight {
     animation: none;
-    opacity: 0;
+    opacity: 0.55;
   }
 }
 
