@@ -47,9 +47,9 @@ export default function ShamsCard() {
           "0 24px 60px -20px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.10)",
       }}
     >
-      {/* TOP-RIGHT light rays — flipped from Noor/Qamar.
-          Wrapper rotated 120deg (instead of 60deg) and anchored on the right
-          edge so the rays beam down-and-leftward from the top-right corner. */}
+      {/* TOP-RIGHT light rays — mirror of ConnectCard's top-left pattern.
+          Wrapper sits above the card's top-right corner, rotated -60deg
+          from its top-right origin so rays fan down-leftward. */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-0 top-0 z-0 h-full w-full overflow-hidden"
@@ -58,48 +58,49 @@ export default function ShamsCard() {
         <div
           className="absolute"
           style={{
-            top: "-280px",
-            right: "60px",
-            width: "500px",
+            top: "10px",
+            right: "-160px",
+            left: "auto",
+            width: "600px",
             height: "10px",
-            transform: "rotate(120deg)",
+            transform: "rotate(44deg)",
             transformOrigin: "top right",
           }}
         >
           <div
             className="absolute animate-ray-shimmer-1"
             style={{
-              top: "120px",
-              right: "10px",
-              width: "350px",
+              top: "200px",
+              left: "10px",
+              width: "500px",
               height: "30px",
               background:
                 "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.55) 50%, transparent 95%)",
-              filter: "blur(7px)",
+              filter: "blur(8px)",
             }}
           />
           <div
             className="absolute animate-ray-shimmer-2"
             style={{
-              top: "70px",
-              right: "20px",
-              width: "400px",
-              height: "30px",
+              top: "130px",
+              left: "20px",
+              width: "560px",
+              height: "36px",
               background:
                 "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.55) 50%, transparent 95%)",
-              filter: "blur(7px)",
+              filter: "blur(8px)",
             }}
           />
           <div
             className="absolute animate-ray-shimmer-3"
             style={{
-              top: "40px",
-              right: "20px",
-              width: "440px",
-              height: "30px",
+              top: "80px",
+              left: "20px",
+              width: "620px",
+              height: "36px",
               background:
                 "linear-gradient(90deg, transparent 5%, rgba(255,255,255,0.45) 50%, transparent 95%)",
-              filter: "blur(5px)",
+              filter: "blur(6px)",
             }}
           />
         </div>
