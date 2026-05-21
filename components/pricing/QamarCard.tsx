@@ -27,18 +27,18 @@ const QAMAR_FEATURES = [
 export default function QamarCard() {
   return (
     <article
-      className="relative flex flex-col overflow-hidden rounded-[28px]"
+      className="relative flex flex-col overflow-hidden rounded-card"
       style={{
         width: "100%",
         maxWidth: "420px",
         height: "650px",
         background:
-          "linear-gradient(151.79deg, rgba(111, 0, 177, 0.1) 0%, rgba(174, 99, 230, 0.6) 34.05%, rgba(66, 16, 62, 0.7) 68.18%, #220418 98.87%)",
-        border: "1px solid #F3E8FF1F",
-        backdropFilter: "blur(1px) saturate(150%)",
-        WebkitBackdropFilter: "blur(1px) saturate(150%)",
+          "linear-gradient(151.79deg, rgba(111, 0, 177, 0.06) 0%, rgba(174, 99, 230, 0.20) 34.05%, rgba(66, 16, 62, 0.25) 68.18%, rgba(34, 4, 24, 0.30) 98.87%)",
+        border: "1px solid rgba(243, 232, 255, 0.18)",
+        backdropFilter: "blur(16px) saturate(180%)",
+        WebkitBackdropFilter: "blur(16px) saturate(180%)",
         boxShadow:
-          "0 24px 60px -20px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.10)",
+          "0 24px 60px -20px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.18)",
       }}
     >
 

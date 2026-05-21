@@ -16,7 +16,6 @@ import { useRef } from "react";
 
 // Native logo dimensions per Figma
 const LOGOS = [
-  { src: "/assets/section8/visa.svg", alt: "Visa", width: 120, height: 39 },
   {
     src: "/assets/section8/uba.svg",
     alt: "UBA — United Bank for Africa",
