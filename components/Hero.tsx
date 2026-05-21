@@ -50,7 +50,7 @@ export default function Hero() {
 
             <h2
               data-anim="subheading"
-              className="mt-2 font-bold leading-[1.08] tracking-tight text-white"
+              className="mt-4 font-bold leading-[1.08] tracking-tight text-white"
               style={{ fontSize: "clamp(1.85rem, 4vw, 3rem)" }}
             >
               Wealth on autopilot.
