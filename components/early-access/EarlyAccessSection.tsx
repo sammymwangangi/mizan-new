@@ -31,7 +31,7 @@ export default function EarlyAccessSection() {
   const [view, setView] = useState<ViewState>("initial");
 
   return (
-    <section className="relative w-full px-6 py-16 md:px-10 lg:px-16 lg:py-20">
+    <section id="early-access" className="relative w-full px-6 py-16 md:px-10 lg:px-16 lg:py-20">
       <div
         className="relative mx-auto w-full overflow-hidden"
         style={{
