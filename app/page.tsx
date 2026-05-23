@@ -19,16 +19,26 @@ export default function Home() {
 
       <div aria-hidden className="pointer-events-none">
         <Image
-          src="/assets/right-light-hero.svg"
+          src="/assets/hero-light.svg"
           alt=""
-          width={858}
-          height={1344}
-          className="absolute top-0 right-0 z-20"
+          width={1895}
+          height={1770}
+          className="absolute left-[50%] top-[7%] z-10 -translate-x-1/2 -translate-y-1/2 opacity-70"
         />
       </div>
 
-      <PageBackground />
-      <AuroraLights />
+      <div aria-hidden className="pointer-events-none">
+        <Image
+          src="/assets/plan-light.svg"
+          alt=""
+          width={1142}
+          height={1824}
+          className="absolute bottom-0 left-1/3 top-4/5 lg:top-[62.5%] xl:top-[65.5%] z-0 -translate-x-1/2 -translate-y-1/2 opacity-70"
+        />
+      </div>
+
+      {/* <PageBackground /> */}
+      {/* <AuroraLights /> */}
       <div className="relative z-10">
         <Hero />
         <FindsSection />
