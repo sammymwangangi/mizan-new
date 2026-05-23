@@ -29,7 +29,7 @@ export default function FindsSection() {
             className="font-bold leading-[1.05] tracking-[-0.02em] text-white"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            Built for the Day Zero investor.
+            Built for Day Zero investor.
             <br />
             Set and forget.
           </h2>
