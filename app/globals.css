@@ -425,37 +425,42 @@ body {
 }
 
 /* ============================================
-   AURORA-IFY A STATIC IMAGE — v2
-   Combines an SVG turbulence filter (defined in
-   the React component) with CSS-driven drift,
-   pulse, and hue shift. The turbulence filter
-   provides the "curtain in wind" warping; CSS
-   adds slower large-scale wandering on top.
+   AURORA-IFY A STATIC IMAGE
+   Three independent animations compose to make
+   a static SVG/PNG feel like a live aurora:
+     1. drift   — gentle position wander (18s)
+     2. pulse   — opacity + scale breathing (9s)
+     3. shift   — subtle hue rotation (12s)
+   Different durations keep them out of sync,
+   which is what creates the organic "alive" feel.
    ============================================ */
 @keyframes aurora-image-drift {
   0%, 100% { transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1); }
-  25%      { transform: translate(-50%, -50%) translate3d(80px, -50px, 0) scale(1.08); }
-  50%      { transform: translate(-50%, -50%) translate3d(-40px, 50px, 0) scale(0.96); }
-  75%      { transform: translate(-50%, -50%) translate3d(60px, 30px, 0) scale(1.04); }
+  25%      { transform: translate(-50%, -50%) translate3d(40px, -30px, 0) scale(1.04); }
+  50%      { transform: translate(-50%, -50%) translate3d(-20px, 25px, 0) scale(0.98); }
+  75%      { transform: translate(-50%, -50%) translate3d(30px, 15px, 0) scale(1.02); }
 }
 
 @keyframes aurora-image-pulse {
-  0%, 100% { opacity: 0.55; }
-  50%      { opacity: 0.95; }
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 0.85; }
+}
+
+@keyframes aurora-image-shift {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50%      { filter: hue-rotate(15deg); }
 }
 
 .aurora-image {
   animation:
-    aurora-image-drift 22s ease-in-out infinite,
-    aurora-image-pulse 8s ease-in-out infinite;
-  /* Apply the SVG filter defined in the page */
-  filter: url(#aurora-warp);
+    aurora-image-drift 18s ease-in-out infinite,
+    aurora-image-pulse 9s ease-in-out infinite,
+    aurora-image-shift 12s ease-in-out infinite;
   will-change: transform, opacity, filter;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .aurora-image {
     animation: none;
-    filter: none;
   }
 }

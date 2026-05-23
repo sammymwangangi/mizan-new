@@ -16,53 +16,6 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-[--color-bg]">
 
-      {/* SVG filter definitions — must exist in the DOM for filter: url(#...)
-          to resolve. Hidden visually but accessible to the rendering engine. */}
-      <svg
-        aria-hidden
-        style={{ position: "absolute", width: 0, height: 0 }}
-      >
-        <defs>
-          {/*
-            AURORA WARP FILTER
-            ──────────────────
-            Two-step pipeline:
-              1. feTurbulence — generates animated fractal noise.
-                 baseFrequency controls "graininess" (lower = smoother flowing,
-                 higher = more chaotic). numOctaves adds layers of detail.
-                 The <animate> tag on baseFrequency makes the noise pattern
-                 evolve over time, which is what creates the rippling effect.
-              2. feDisplacementMap — uses the noise to push pixels of the
-                 source image around. scale controls how much warping happens.
-                 Higher scale = more dramatic distortion.
-          */}
-          <filter id="aurora-warp" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.008 0.012"
-              numOctaves="2"
-              seed="3"
-              result="turbulence"
-            >
-              {/* Animate baseFrequency over 20s for the warping motion */}
-              <animate
-                attributeName="baseFrequency"
-                dur="20s"
-                values="0.008 0.012; 0.014 0.008; 0.008 0.012"
-                repeatCount="indefinite"
-              />
-            </feTurbulence>
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="turbulence"
-              scale="40"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-        </defs>
-      </svg>
-
       {/* Main Hero light blob */}
       <div aria-hidden className="pointer-events-none">
         <Image
