@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 
 const NAV_ITEMS = [
   { label: "Personal", href: "#" },
-  { label: "Business", href: "https://sprout-sticky-49845851.figma.site" },
+  { label: "Business", href: "/business" },
   { label: "Intelligence Labs", href: "#" },
   { label: "About Us", href: "#" },
 ];
