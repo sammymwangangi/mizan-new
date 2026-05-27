@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Mountains from "@/components/business/Mountains";
+import SecurityCompliance from "@/components/business/SecurityCompliance";
 import Footer from "@/components/footer/Footer";
 
 export default function BusinessPage() {
@@ -8,6 +9,7 @@ export default function BusinessPage() {
 
       <div className="relative z-10">
         <Hero />
+        <SecurityCompliance />
         <Mountains />
         <Footer />
       </div>
