@@ -714,37 +714,54 @@ function PhoneMockup({ children }: { children: React.ReactNode }) {
 export default function MizanControlTowerSection() {
   return (
     <section
-      className="relative isolate w-full overflow-hidden px-4 py-16 sm:px-8 sm:py-24"
+      className="relative isolate w-full overflow-hidden px-4 pb-14 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-0 lg:pt-[72px]"
       style={{
         background:
-          "radial-gradient(1200px 600px at 50% 0%, #efe6ff 0%, #f3edff 30%, #faf6ff 70%, #ffffff 100%)",
+          "radial-gradient(950px 520px at 50% 0%, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.82) 36%, rgba(244,237,255,0.76) 68%, rgba(225,216,255,0.92) 100%)",
       }}
     >
-      {/* Decorative soft blobs */}
-      <div aria-hidden className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-violet-300/30 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -right-32 top-40 h-80 w-80 rounded-full bg-pink-300/20 blur-3xl" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(90deg,rgba(255,255,255,0.64),rgba(244,235,255,0.26),rgba(217,207,255,0.42))]"
+      />
 
       <div className="relative mx-auto max-w-[1367px]">
         {/* Heading */}
         {/* background: linear-gradient(180deg, #280137 34.01%, #8A609F 108.79%),linear-gradient(0deg, var(--Color-1, rgba(0, 0, 0, 0.2)), var(--Color-1, rgba(0, 0, 0, 0.2))); */}
         <div className="mx-auto max-w-[1238px] text-center">
-          <h2 className="text-balance text-3xl font-bold tracking-tight text-[#2a1454] sm:text-4xl md:text-[64px]">
-            Mizan Control Tower <span className="text-violet-700">:</span> All-in-one suite
+          <h2 className="text-balance text-[38px] font-extrabold leading-[1.05] tracking-normal text-[#2d0c3f] sm:text-[54px] lg:text-[58px] 2xl:text-[64px]">
+            Mizan Control Tower <span aria-hidden="true">:</span> All-in-one suite
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm text-slate-600 sm:text-base">
-            Create trades, run AI-powered document checks, request payment, track milestones, and manage settlement — all in one secure trade control tower.
+          <p className="mx-auto mt-5 max-w-[890px] text-pretty text-[15px] leading-[1.45] text-[#2f2b35] sm:text-[17px]">
+            Create trades, run AI-powered document checks, request payment, track
+            milestones, and manage settlement - all in one secure trade control
+            tower.
           </p>
         </div>
 
         {/* Mockup composition */}
-        <div className="relative mx-auto mt-12 max-w-[1248px]">
+        <div className="relative mx-auto mt-10 hidden max-w-[1248px] md:block lg:mt-11">
           {/* MacBook */}
           <MacBookMockup>
             <Dashboard />
           </MacBookMockup>
 
           {/* Phone — overlaps bottom-right */}
-          <div className="pointer-events-none absolute -bottom-6 right-[2%] w-[22%] min-w-[287px] max-w-[290px] sm:bottom-[1%] sm:-right-[4%]">
+          <div className="pointer-events-none absolute bottom-[0.5%] right-[0.5%] w-[23%] min-w-[220px] max-w-[292px] lg:-right-[2.5%]">
+            <PhoneMockup>
+              <PhoneScreen />
+            </PhoneMockup>
+          </div>
+        </div>
+
+        <div className="relative mx-auto mt-9 md:hidden">
+          <div className="relative mx-auto w-[112%] max-w-none -translate-x-[6%] opacity-95">
+            <MacBookMockup>
+              <Dashboard />
+            </MacBookMockup>
+          </div>
+
+          <div className="relative z-10 mx-auto -mt-[28%] w-[50%] min-w-[178px] max-w-[210px]">
             <PhoneMockup>
               <PhoneScreen />
             </PhoneMockup>
