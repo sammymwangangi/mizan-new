@@ -87,7 +87,7 @@ function ComparisonCard({ title, variant, items }: ComparisonCardProps) {
       }
     >
       <h3
-        className={`text-[22px] font-bold leading-tight sm:text-[24px] ${
+        className={`text-[20px] font-bold leading-tight sm:text-[24px] ${
           isPositive ? "text-white" : "text-[#14143a]"
         }`}
       >
@@ -168,7 +168,7 @@ export default function MoveFaster() {
     >
       {/* ── glass card ── */}
       <div
-        className="relative mx-auto max-w-[1100px] overflow-hidden rounded-[32px] shadow-[0_35px_90px_rgba(115,80,255,0.12)] px-7 py-10 sm:px-10 sm:py-14"
+        className="relative mx-auto max-w-[1340px] overflow-hidden rounded-[32px] shadow-[0_35px_90px_rgba(115,80,255,0.12)] px-7 py-10 sm:px-10 sm:py-14"
         style={{ background: "rgba(255,255,255,0.98)" }}
       >
         {/* side lines clipped inside the card */}
@@ -182,7 +182,7 @@ export default function MoveFaster() {
             <br />
             Move faster, pay less.
           </h2>
-          <p className="mx-auto mt-4 max-w-[440px] text-[15px] leading-relaxed text-[#6b6b90] sm:text-[17px]">
+          <p className="mx-auto mt-4 max-w-[440px] text-[15px] leading-relaxed text-black sm:text-[20px]">
             Global trade doesn&apos;t wait for office hours. Neither should
             your money.
           </p>
@@ -203,7 +203,7 @@ export default function MoveFaster() {
         </div>
 
         {/* ── footer ── */}
-        <p className="relative z-10 mt-10 text-center text-[14px] text-[#9090b0] sm:text-[15px]">
+        <p className="relative z-10 mt-10 text-center text-[14px] text-[#9090b0] sm:text-[20px]">
           Trade moves every day. Your money should too.
         </p>
       </div>
