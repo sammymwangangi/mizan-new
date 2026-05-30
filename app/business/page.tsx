@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import MizanControlTowerSection from "@/components/business/MizanControlTowerSection";
 import MoveMoney from "@/components/business/MoveMoney";
 import MoveFaster from "@/components/business/MoveFaster";
+import PricingTable from "@/components/business/PricingTable";
 
 export default function BusinessPage() {
   return (
@@ -15,6 +16,7 @@ export default function BusinessPage() {
         <MoveMoney />
         <MizanControlTowerSection />
         <MoveFaster />
+        <PricingTable />
         <SecurityCompliance />
         <Mountains />
         <Footer />
