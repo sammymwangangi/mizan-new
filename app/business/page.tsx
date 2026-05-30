@@ -4,6 +4,7 @@ import SecurityCompliance from "@/components/business/SecurityCompliance";
 import Footer from "@/components/footer/Footer";
 import MizanControlTowerSection from "@/components/business/MizanControlTowerSection";
 import MoveMoney from "@/components/business/MoveMoney";
+import MoveFaster from "@/components/business/MoveFaster";
 
 export default function BusinessPage() {
   return (
@@ -13,6 +14,7 @@ export default function BusinessPage() {
         <BusinessHero />
         <MoveMoney />
         <MizanControlTowerSection />
+        <MoveFaster />
         <SecurityCompliance />
         <Mountains />
         <Footer />
