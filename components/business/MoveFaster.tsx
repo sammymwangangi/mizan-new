@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 /* ─── sub-components ───────────────────────────────────────────────────── */
 
 /** White-ring badge with dark-gradient inner circle + white checkmark */
@@ -166,6 +168,7 @@ export default function MoveFaster() {
         background: "linear-gradient(180deg, #F4EEFF 0%, #E8E2FF 45%, #EEF2FF 100%)",
       }}
     >
+
       {/* ── glass card ── */}
       <div
         className="relative mx-auto max-w-[1340px] overflow-hidden rounded-[32px] shadow-[0_35px_90px_rgba(115,80,255,0.12)] px-7 py-10 sm:px-10 sm:py-14"

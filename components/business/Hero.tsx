@@ -240,8 +240,15 @@ function GlobalPassCard() {
       data-anim="float-coin"
       className="relative h-[504px] w-[764px] overflow-hidden rounded-[24px] bg-[#050505] shadow-[0_34px_80px_rgba(0,0,0,0.45)]"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_46%_38%,rgba(255,255,255,0.38),rgba(255,255,255,0.08)_22%,rgba(0,0,0,0)_44%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),transparent_45%,rgba(255,255,255,0.08))]" />
+      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_46%_38%,rgba(255,255,255,0.38),rgba(255,255,255,0.08)_22%,rgba(0,0,0,0)_44%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),transparent_45%,rgba(255,255,255,0.08))]" /> */}
+      <Image
+        src="/assets/business/card-bg.svg"
+        alt=""
+        width={764}
+        height={504}
+        className="h-full w-full object-cover "
+      />
       <Image
         src="/assets/business/chip.png"
         alt=""

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 function CheckMark() {
   return (
     <svg
@@ -113,30 +115,39 @@ export default function PricingTable() {
           </div>
 
           {/* ── Enterprise ── */}
+          {/* background: linear-gradient(158.96deg, #210D25 36.89%, #8F00E0 107.81%); */}
           <div
             className="relative flex flex-col overflow-hidden rounded-[24px] p-8 sm:p-10"
             style={{
               background:
-                "linear-gradient(180deg, #3A1268 0%, #1C0848 45%, #0D0420 100%)",
+                "linear-gradient(158.96deg, #210D25 36.89%, #8F00E0 107.81%)",
             }}
           >
             {/* light-ray glow */}
-            <div
+            {/* <div
               className="pointer-events-none absolute -top-10 -right-10 h-[320px] w-[320px]"
               style={{
                 background:
                   "radial-gradient(ellipse at 70% 20%, rgba(200,160,255,0.55) 0%, rgba(150,90,255,0.25) 35%, transparent 65%)",
               }}
+            /> */}
+            {/* Ray image */}
+            <Image
+              src="/assets/business/entreprise-light.svg"
+              alt="Rays"
+              width={291}
+              height={387}
+              className="pointer-events-none absolute top-0 right-0 h-[291px] w-[387px]"
             />
             {/* secondary shimmer streaks */}
-            <div
+            {/* <div
               className="pointer-events-none absolute top-0 right-0 h-[260px] w-[200px]"
               style={{
                 background:
                   "conic-gradient(from 210deg at 85% 10%, transparent 0deg, rgba(255,255,255,0.12) 15deg, transparent 30deg, rgba(255,255,255,0.07) 50deg, transparent 70deg)",
                 filter: "blur(6px)",
               }}
-            />
+            /> */}
 
             <div className="relative mb-6">
               <h3 className="text-[32px] font-bold text-white">Enterprise</h3>

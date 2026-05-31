@@ -208,18 +208,18 @@ const I = {
 
 function Dashboard() {
   const shipments = [
-    { id: "FRE-AMS-0042", customer: "Amsterdam XXX",   route: "NBO → AMS", status: "In Transit",       value: "$24,500.00", tone: "violet" },
-    { id: "FRE-RDM-0039", customer: "Rotterdam Fresh BV", route: "NBO → RTM", status: "Awaiting Docs",    value: "$18,200.00", tone: "amber" },
-    { id: "FRE-HAM-0036", customer: "Hamburg Produce",    route: "NBO → HAM", status: "Awaiting Payment", value: "$15,850.00", tone: "orange" },
-    { id: "FRE-LON-0031", customer: "London Greens Ltd",  route: "NBO → LON", status: "Completed",        value: "$22,750.00", tone: "green" },
-    { id: "FRE-PAR-0028", customer: "Paris Market SARL",  route: "NBO → CDG", status: "Completed",        value: "$17,300.00", tone: "green" },
+    { id: "FRE-AMS-0042", customer: "Amsterdam XXX", route: "NBO → AMS", status: "In Transit", value: "$24,500.00", tone: "violet" },
+    { id: "FRE-RDM-0039", customer: "Rotterdam Fresh BV", route: "NBO → RTM", status: "Awaiting Docs", value: "$18,200.00", tone: "amber" },
+    { id: "FRE-HAM-0036", customer: "Hamburg Produce", route: "NBO → HAM", status: "Awaiting Payment", value: "$15,850.00", tone: "orange" },
+    { id: "FRE-LON-0031", customer: "London Greens Ltd", route: "NBO → LON", status: "Completed", value: "$22,750.00", tone: "green" },
+    { id: "FRE-PAR-0028", customer: "Paris Market SARL", route: "NBO → CDG", status: "Completed", value: "$17,300.00", tone: "green" },
   ];
 
   const statusTone: Record<string, string> = {
     violet: "bg-violet-500/15 text-violet-300",
-    amber:  "bg-amber-500/15 text-amber-300",
+    amber: "bg-amber-500/15 text-amber-300",
     orange: "bg-orange-500/15 text-orange-300",
-    green:  "bg-emerald-500/15 text-emerald-300",
+    green: "bg-emerald-500/15 text-emerald-300",
   };
 
   return (
@@ -232,16 +232,16 @@ function Dashboard() {
         </div>
         <nav className="flex flex-col gap-[2px] text-[10px]">
           {[
-            { icon: I.Grid,  label: "Dashboard", active: true },
-            { icon: I.Box,   label: "Shipments" },
-            { icon: I.Wallet,label: "Payments" },
-            { icon: I.Doc,   label: "Invoices" },
-            { icon: I.Flag,  label: "Milestones" },
-            { icon: I.List,  label: "Ledger" },
+            { icon: I.Grid, label: "Dashboard", active: true },
+            { icon: I.Box, label: "Shipments" },
+            { icon: I.Wallet, label: "Payments" },
+            { icon: I.Doc, label: "Invoices" },
+            { icon: I.Flag, label: "Milestones" },
+            { icon: I.List, label: "Ledger" },
             { icon: I.Users, label: "Counterparties" },
-            { icon: I.Doc,   label: "Documents" },
+            { icon: I.Doc, label: "Documents" },
             { icon: I.Chart, label: "Reports" },
-            { icon: I.Gear,  label: "Settings" },
+            { icon: I.Gear, label: "Settings" },
           ].map(({ icon: Icon, label, active }) => (
             <button
               key={label}
@@ -316,10 +316,10 @@ function Dashboard() {
           {/* KPI cards */}
           <div className="grid grid-cols-4 gap-2.5">
             {[
-              { icon: <I.Plane className="h-3 w-3 text-violet-300" strokeWidth={1.8} />,    iconBg: "bg-violet-500/15",     label: "Total Settled (30D)", value: "$142,500.00", sub: "Across 7 active trades", badge: "↑ 18.4%", badgeTone: "text-emerald-400 bg-emerald-500/10" },
-              { icon: <I.Plane className="h-3 w-3 text-sky-300" strokeWidth={1.8} />,        iconBg: "bg-sky-500/15",         label: "In Transit",          value: "$87,250.00",  sub: "5 shipments" },
-              { icon: <I.Hourglass className="h-3 w-3 text-orange-300" strokeWidth={1.8} />, iconBg: "bg-orange-500/15",      label: "Awaiting Action",     value: "$24,300.00",  sub: "3 shipments" },
-              { icon: <I.CheckCircle className="h-3 w-3 text-emerald-300" strokeWidth={1.8} />, iconBg: "bg-emerald-500/15",  label: "Success Rate",        value: "99.7%",       sub: "This month" },
+              { icon: <I.Plane className="h-3 w-3 text-violet-300" strokeWidth={1.8} />, iconBg: "bg-violet-500/15", label: "Total Settled (30D)", value: "$142,500.00", sub: "Across 7 active trades", badge: "↑ 18.4%", badgeTone: "text-emerald-400 bg-emerald-500/10" },
+              { icon: <I.Plane className="h-3 w-3 text-sky-300" strokeWidth={1.8} />, iconBg: "bg-sky-500/15", label: "In Transit", value: "$87,250.00", sub: "5 shipments" },
+              { icon: <I.Hourglass className="h-3 w-3 text-orange-300" strokeWidth={1.8} />, iconBg: "bg-orange-500/15", label: "Awaiting Action", value: "$24,300.00", sub: "3 shipments" },
+              { icon: <I.CheckCircle className="h-3 w-3 text-emerald-300" strokeWidth={1.8} />, iconBg: "bg-emerald-500/15", label: "Success Rate", value: "99.7%", sub: "This month" },
             ].map((k) => (
               <div key={k.label} className="rounded-lg border border-white/[0.05] bg-white/[0.02] p-2.5">
                 <div className="flex items-start gap-2">
@@ -487,9 +487,9 @@ function Dashboard() {
               <div className="mt-2 grid grid-cols-4 gap-2 text-[8px]">
                 {[
                   { label: "Total Collected", value: "$142,500.00", tone: "text-emerald-400" },
-                  { label: "Total Released",  value: "$118,200.00", tone: "text-emerald-400" },
-                  { label: "In Reserve",      value: "$24,300.00",  tone: "text-orange-300" },
-                  { label: "Total Fees",      value: "$1,240.00",   tone: "text-slate-200" },
+                  { label: "Total Released", value: "$118,200.00", tone: "text-emerald-400" },
+                  { label: "In Reserve", value: "$24,300.00", tone: "text-orange-300" },
+                  { label: "Total Fees", value: "$1,240.00", tone: "text-slate-200" },
                 ].map((m) => (
                   <div key={m.label}>
                     <div className="text-slate-500">{m.label}</div>
@@ -539,18 +539,18 @@ function Dashboard() {
 function PhoneScreen() {
   type DocStatus = "PENDING" | "COMPLETE" | "WAITING";
   const docs: { title: string; sub: string; status: DocStatus; done?: boolean; waiting?: boolean }[] = [
-    { title: "Commercial Invoice",      sub: "Itemised list of goods and value",   status: "PENDING" },
-    { title: "Packing List",            sub: "Box count, weights, and dimensions", status: "PENDING" },
+    { title: "Commercial Invoice", sub: "Itemised list of goods and value", status: "PENDING" },
+    { title: "Packing List", sub: "Box count, weights, and dimensions", status: "PENDING" },
     { title: "Phytosanitary Certificate", sub: "Plant health clearance certificate", status: "PENDING" },
-    { title: "Airline AWB Copy",        sub: "Air waybill — triggers payment",     status: "PENDING" },
-    { title: "Consignee Details",       sub: "Buyer contact and customs info",     status: "COMPLETE", done: true },
-    { title: "Proof of Delivery",       sub: "Signed receipt at destination",      status: "WAITING", waiting: true },
+    { title: "Airline AWB Copy", sub: "Air waybill — triggers payment", status: "PENDING" },
+    { title: "Consignee Details", sub: "Buyer contact and customs info", status: "COMPLETE", done: true },
+    { title: "Proof of Delivery", sub: "Signed receipt at destination", status: "WAITING", waiting: true },
   ];
 
   const statusPill: Record<DocStatus, string> = {
-    PENDING:  "bg-slate-100 text-slate-500",
+    PENDING: "bg-slate-100 text-slate-500",
     COMPLETE: "bg-emerald-100 text-emerald-600",
-    WAITING:  "bg-amber-100 text-amber-600",
+    WAITING: "bg-amber-100 text-amber-600",
   };
 
   return (
@@ -595,8 +595,8 @@ function PhoneScreen() {
               key={d.title}
               className={[
                 "flex items-center gap-2.5 rounded-2xl bg-white px-2.5 py-2 ring-1",
-                d.done    ? "ring-emerald-100" :
-                d.waiting ? "ring-amber-100"   : "ring-slate-100",
+                d.done ? "ring-emerald-100" :
+                  d.waiting ? "ring-amber-100" : "ring-slate-100",
                 "shadow-[0_1px_6px_-2px_rgba(15,23,42,0.05)]",
               ].join(" ")}
             >
@@ -604,13 +604,13 @@ function PhoneScreen() {
               <div
                 className={[
                   "grid h-8 w-8 flex-none place-items-center rounded-full",
-                  d.done    ? "bg-emerald-50" :
-                  d.waiting ? "bg-amber-50"   : "bg-slate-50",
+                  d.done ? "bg-emerald-50" :
+                    d.waiting ? "bg-amber-50" : "bg-slate-50",
                 ].join(" ")}
               >
-                {d.done    ? <I.CheckCircle className="h-4 w-4 text-emerald-500" strokeWidth={2} /> :
-                 d.waiting ? <I.Clock       className="h-4 w-4 text-amber-500"   strokeWidth={2} /> :
-                              <I.Upload     className="h-4 w-4 text-slate-500"   strokeWidth={2} />}
+                {d.done ? <I.CheckCircle className="h-4 w-4 text-emerald-500" strokeWidth={2} /> :
+                  d.waiting ? <I.Clock className="h-4 w-4 text-amber-500" strokeWidth={2} /> :
+                    <I.Upload className="h-4 w-4 text-slate-500" strokeWidth={2} />}
               </div>
 
               {/* title + sub */}
@@ -715,7 +715,7 @@ function PhoneMockup({ children }: { children: React.ReactNode }) {
 export default function MizanControlTowerSection() {
   return (
     <section
-      className="relative isolate w-full overflow-hidden px-4 pb-14 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-0 lg:pt-[72px]"
+      className="relative isolate w-full overflow-hidden px-4 pb-14 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-20 lg:pt-[72px]"
       style={{
         background:
           "radial-gradient(950px 520px at 50% 0%, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.82) 36%, rgba(244,237,255,0.76) 68%, rgba(225,216,255,0.92) 100%)",
@@ -726,7 +726,7 @@ export default function MizanControlTowerSection() {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 "
       />
 
-      <div className="relative mx-auto max-w-[1367px]">
+      <div className="relative mx-auto max-w-[1392px]">
         {/* Heading */}
         {/* background: linear-gradient(180deg, #280137 34.01%, #8A609F 108.79%),linear-gradient(0deg, var(--Color-1, rgba(0, 0, 0, 0.2)), var(--Color-1, rgba(0, 0, 0, 0.2))); */}
         <div className="mx-auto max-w-[1238px] text-center">
@@ -744,13 +744,13 @@ export default function MizanControlTowerSection() {
 
         {/* Mockup composition */}
         {/* <div className="relative mx-auto mt-10 hidden max-w-[1248px] md:block lg:mt-11"> */}
-          {/* MacBook */}
-          {/* <MacBookMockup>
+        {/* MacBook */}
+        {/* <MacBookMockup>
             <Dashboard />
           </MacBookMockup> */}
 
-          {/* Phone — overlaps bottom-right */}
-          {/* <div className="pointer-events-none absolute bottom-[0.5%] right-[0.5%] w-[23%] min-w-[220px] max-w-[292px] lg:-right-[2.5%]">
+        {/* Phone — overlaps bottom-right */}
+        {/* <div className="pointer-events-none absolute bottom-[0.5%] right-[0.5%] w-[23%] min-w-[220px] max-w-[292px] lg:-right-[2.5%]">
             <PhoneMockup>
               <PhoneScreen />
             </PhoneMockup>
@@ -770,7 +770,37 @@ export default function MizanControlTowerSection() {
             </PhoneMockup>
           </div>
         </div> */}
+
+        
       </div>
+      {/* grid with 2 columns */}
+        <div className="mx-auto  max-w-[1392px] grid grid-cols-1 gap-6 md:grid-cols-2 justify-items-center mt-8">
+          <div className="w-[763px] h-[584px] flex flex-col gap-6 bg-[#F4F4F4] rounded-[32px] p-9">
+            <div className="flex items-center self-center">
+              <Image src="/assets/business/smart-money.svg" alt="Smart Money Controls" width={345} height={344} className="w-[345px] h-[344px]" />
+            </div>
+            <div>
+              <h3 className="text-[24px] font-bold text-[#2d0c3f]">Smart Money Controls</h3>
+              <p className="text-[16px] text-[#2f2b35]">
+                Manage requests, transfers, top-ups, and bills with smart, secure, and real-time money control features.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative w-[539px] h-[579px] flex flex-col bg-[#F4F4F4] rounded-[32px] py-9">
+            <div className="flex items-center self-center">
+              <Image src="/assets/business/seamless.svg" alt="Seamless Settlements" width={539} height={344} className="w-[539px] h-[434px]" />
+            </div>
+            <Image src="/assets/business/settled.svg" alt="Settled" width={170} height={66} className="absolute bottom-30 left-1/2 transform -translate-x-1/2 w-[170px] h-[66px]" />
+            <div className="px-6 pb-6">
+              <h3 className="text-[24px] font-bold text-[#2d0c3f]">Seamless Settlements</h3>
+              <p className="text-[16px] text-[#2f2b35]">
+                Faster, reliable, and automated settlements
+                with real-time tracking, global support.
+              </p>
+            </div>
+          </div>
+        </div>
     </section>
   );
 }
