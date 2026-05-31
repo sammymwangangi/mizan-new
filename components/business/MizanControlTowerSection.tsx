@@ -771,36 +771,36 @@ export default function MizanControlTowerSection() {
           </div>
         </div> */}
 
-        
+
       </div>
       {/* grid with 2 columns */}
-        <div className="mx-auto  max-w-[1392px] grid grid-cols-1 gap-6 md:grid-cols-2 justify-items-center mt-8">
-          <div className="w-[763px] h-[584px] flex flex-col gap-6 bg-[#F4F4F4] rounded-[32px] p-9">
-            <div className="flex items-center self-center">
-              <Image src="/assets/business/smart-money.svg" alt="Smart Money Controls" width={345} height={344} className="w-[345px] h-[344px]" />
-            </div>
-            <div>
-              <h3 className="text-[24px] font-bold text-[#2d0c3f]">Smart Money Controls</h3>
-              <p className="text-[16px] text-[#2f2b35]">
-                Manage requests, transfers, top-ups, and bills with smart, secure, and real-time money control features.
-              </p>
-            </div>
+      <div className="mx-auto max-w-[1392px] grid grid-cols-1 md:[grid-template-columns:minmax(0,763fr)_minmax(0,539fr)] gap-6 mt-8 px-4 sm:px-6 lg:px-8">
+        <div className="w-full flex flex-col gap-6 bg-[#F4F4F4] rounded-[32px] p-9">
+          <div className="flex items-center self-center">
+            <Image src="/assets/business/smart-money.svg" alt="Smart Money Controls" width={345} height={344} className="w-full max-w-[345px] h-auto" />
           </div>
-
-          <div className="relative w-[539px] h-[579px] flex flex-col bg-[#F4F4F4] rounded-[32px] py-9">
-            <div className="flex items-center self-center">
-              <Image src="/assets/business/seamless.svg" alt="Seamless Settlements" width={539} height={344} className="w-[539px] h-[434px]" />
-            </div>
-            <Image src="/assets/business/settled.svg" alt="Settled" width={170} height={66} className="absolute bottom-30 left-1/2 transform -translate-x-1/2 w-[170px] h-[66px]" />
-            <div className="px-6 pb-6">
-              <h3 className="text-[24px] font-bold text-[#2d0c3f]">Seamless Settlements</h3>
-              <p className="text-[16px] text-[#2f2b35]">
-                Faster, reliable, and automated settlements
-                with real-time tracking, global support.
-              </p>
-            </div>
+          <div>
+            <h3 className="text-[24px] font-bold text-[#2d0c3f]">Smart Money Controls</h3>
+            <p className="text-[16px] text-[#2f2b35]">
+              Manage requests, transfers, top-ups, and bills with smart, secure, and real-time money control features.
+            </p>
           </div>
         </div>
+
+        <div className="relative w-full flex flex-col bg-[#F4F4F4] rounded-[32px] py-9">
+          <div className="flex items-center self-center w-full overflow-hidden">
+            <Image src="/assets/business/seamless.svg" alt="Seamless Settlements" width={539} height={434} className="w-full h-auto max-h-[434px] object-contain" />
+          </div>
+          <Image src="/assets/business/settled.svg" alt="Settled" width={170} height={66} className="absolute bottom-30 left-1/2 transform -translate-x-1/2 w-[170px] h-[66px]" />
+          <div className="px-6 pb-6">
+            <h3 className="text-[24px] font-bold text-[#2d0c3f]">Seamless Settlements</h3>
+            <p className="text-[16px] text-[#2f2b35]">
+              Faster, reliable, and automated settlements
+              with real-time tracking, global support.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
