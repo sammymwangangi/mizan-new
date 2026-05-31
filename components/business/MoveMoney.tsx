@@ -38,7 +38,7 @@ export default function MoveMoney() {
         </div>
 
         <div className="mt-8 grid grid-cols-1 items-end gap-5 lg:grid-cols-[1fr_1fr_1fr] lg:gap-4 xl:gap-6">
-          <article className="relative flex min-h-[420px] flex-col rounded-[30px] bg-white/88 p-8 shadow-[0_24px_80px_rgba(80,36,132,0.10)] ring-1 ring-black/[0.03] sm:min-h-[480px] sm:p-11 lg:min-h-[516px]">
+          <article className="relative flex flex-col rounded-[30px] bg-white/88 p-8 shadow-[0_24px_80px_rgba(80,36,132,0.10)] ring-1 ring-black/[0.03]">
             <div className="grid h-[64px] w-[69px] place-items-center rounded-[14px]">
               <Image src="/assets/business/fast.png" alt="" width={69} height={64} />
             </div>
@@ -116,7 +116,7 @@ export default function MoveMoney() {
             </div>
           </article>
 
-          <article className="relative flex h-[482px] flex-col rounded-[30px] bg-white/92 p-6 shadow-[0_24px_80px_rgba(80,36,132,0.10)] ring-1 ring-black/[0.03]">
+          <article className="relative flex flex-col rounded-[30px] bg-white/92 p-6 shadow-[0_24px_80px_rgba(80,36,132,0.10)] ring-1 ring-black/[0.03]">
             <Image
               src="/assets/business/shield.png"
               alt=""
