@@ -77,21 +77,21 @@ export default function PricingTable() {
             className="flex flex-col rounded-[24px] p-8 sm:p-10"
             style={{
               background:
-                "linear-gradient(160deg, #9B6DFF 0%, #7350FF 55%, #5C35E8 100%)",
+                "#5E05A6CC",
             }}
           >
             <div className="mb-6">
-              <h3 className="text-[32px] font-bold text-white">Starter</h3>
-              <p className="mt-2 text-[14px] leading-snug text-white/80">
+              <h3 className="text-[48px] font-medium text-white">Starter</h3>
+              <p className="mt-2 text-[18px] leading-snug text-white">
                 Full-featured trade essentials with no strings attached.
               </p>
             </div>
 
             <div className="mb-7 flex items-baseline gap-2">
-              <span className="text-[68px] font-bold leading-none text-white">
+              <span className="text-[70px] font-bold leading-none text-white">
                 $0
               </span>
-              <span className="text-[15px] text-white/65">/ per month</span>
+              <span className="text-[20px] text-[#ACAFB9]">/ per month</span>
             </div>
 
             <p className="mb-5 text-[13px] font-semibold text-white/90">
@@ -120,48 +120,23 @@ export default function PricingTable() {
             className="relative flex flex-col overflow-hidden rounded-[24px] p-8 sm:p-10"
             style={{
               background:
-                "linear-gradient(158.96deg, #210D25 36.89%, #8F00E0 107.81%)",
+                "url('/assets/business/pricing-plan-2.svg') no-repeat center/cover, linear-gradient(158.96deg, #210D25 36.89%, #8F00E0 107.81%)",
             }}
           >
-            {/* light-ray glow */}
-            {/* <div
-              className="pointer-events-none absolute -top-10 -right-10 h-[320px] w-[320px]"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 70% 20%, rgba(200,160,255,0.55) 0%, rgba(150,90,255,0.25) 35%, transparent 65%)",
-              }}
-            /> */}
-            {/* Ray image */}
-            <Image
-              src="/assets/business/entreprise-light.svg"
-              alt="Rays"
-              width={291}
-              height={387}
-              className="pointer-events-none absolute top-0 right-0 h-[291px] w-[387px]"
-            />
-            {/* secondary shimmer streaks */}
-            {/* <div
-              className="pointer-events-none absolute top-0 right-0 h-[260px] w-[200px]"
-              style={{
-                background:
-                  "conic-gradient(from 210deg at 85% 10%, transparent 0deg, rgba(255,255,255,0.12) 15deg, transparent 30deg, rgba(255,255,255,0.07) 50deg, transparent 70deg)",
-                filter: "blur(6px)",
-              }}
-            /> */}
 
             <div className="relative mb-6">
-              <h3 className="text-[32px] font-bold text-white">Enterprise</h3>
-              <p className="mt-2 text-[14px] leading-snug text-white/65">
+              <h3 className="text-[48px] font-medium text-white">Enterprise</h3>
+              <p className="mt-2 text-[18px] leading-snug text-[#ACAFB9]">
                 No setup fee. No monthly fee to begin. Clear pricing before
                 settlement.
               </p>
             </div>
 
             <div className="relative mb-7 flex items-baseline gap-2">
-              <span className="text-[68px] font-bold leading-none text-white">
+              <span className="text-[70px] font-medium leading-none text-white">
                 $500
               </span>
-              <span className="text-[15px] text-white/55">/ per month</span>
+              <span className="text-[20px] text-[#ACAFB9]">/ per month</span>
             </div>
 
             <p className="relative mb-5 text-[13px] font-semibold leading-snug text-white/75">
@@ -179,7 +154,8 @@ export default function PricingTable() {
               ))}
             </ul>
 
-            <button className="relative mt-10 w-full rounded-full border border-white/25 py-[14px] text-[15px] font-medium text-white transition-colors hover:bg-white/10">
+            {/* background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.6) 100%); */}
+            <button className="cursor-pointer mt-10 w-full rounded-full py-[14px] text-[18px] font-medium text-[#141414]" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.6) 100%)" }} >
               Book a demo
             </button>
           </div>

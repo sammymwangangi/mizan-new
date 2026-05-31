@@ -28,9 +28,9 @@ export default function BusinessPage() {
         <MoveMoney />
         <MizanControlTowerSection />
         <MoveFaster />
+        <SecurityCompliance />
         <PricingTable />
         <CrossBorder />
-        <SecurityCompliance />
         <Mountains />
         <Footer />
       </div>
