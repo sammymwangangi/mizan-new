@@ -464,3 +464,93 @@ body {
     animation: none;
   }
 }
+
+/* ============================================
+   CROSS-BORDER PAYMENTS CARD
+   Outer card — rotating purple/violet border.
+   Inner cards — left: brownish, right: blue/pink.
+   All reuse the existing --border-angle property
+   and border-rotate keyframes (inherits: false
+   gives each element its own independent instance).
+   ============================================ */
+
+.cross-border-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    transparent 200deg,
+    rgba(147, 51, 234, 0.7) 250deg,
+    rgba(168, 85, 247, 1)   280deg,
+    rgba(107, 33, 168, 0.7) 310deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: border-rotate 3s linear infinite;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.payment-card-left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 0.5px;
+  background: conic-gradient(
+    from var(--border-angle),
+    rgba(115, 77, 74, 0.1)  0deg,
+    rgba(115, 77, 74, 0.05) 150deg,
+    rgba(115, 77, 74, 0.5)  240deg,
+    rgba(115, 77, 74, 0.85) 300deg,
+    rgba(115, 77, 74, 0.1)  360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: border-rotate 4s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.payment-card-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 0.5px;
+  background: conic-gradient(
+    from var(--border-angle),
+    rgba(88, 30, 251, 0.2) 0deg,
+    rgba(88, 30, 251, 0.9) 90deg,
+    rgba(240, 72, 180, 1)  200deg,
+    rgba(88, 30, 251, 0.5) 280deg,
+    rgba(88, 30, 251, 0.2) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: border-rotate 4s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cross-border-card::before,
+  .payment-card-left::before,
+  .payment-card-right::before {
+    animation: none !important;
+  }
+}
