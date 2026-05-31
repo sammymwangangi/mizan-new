@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useHeroEntrance } from "@/lib/useGsapEntrance";
+import Navbar from "@/components/Navbar";
 
 const navItems = [
   { label: "Personal", href: "/" },
@@ -191,7 +192,7 @@ function NetworkMesh() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="absolute inset-y-0 left-0 z-10 hidden w-[56%] opacity-80 md:block"
+      className="absolute inset-y-0 left-0 z-10 hidden w-full opacity-80 md:block"
     />
   );
 }
@@ -237,7 +238,7 @@ function GlobalPassCard() {
   return (
     <div
       data-anim="float-coin"
-      className="relative h-[190px] w-[300px] overflow-hidden rounded-[24px] bg-[#050505] shadow-[0_34px_80px_rgba(0,0,0,0.45)] sm:h-[224px] sm:w-[350px] lg:h-[257px] lg:w-[382px]"
+      className="relative h-[504px] w-[764px] overflow-hidden rounded-[24px] bg-[#050505] shadow-[0_34px_80px_rgba(0,0,0,0.45)]"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_46%_38%,rgba(255,255,255,0.38),rgba(255,255,255,0.08)_22%,rgba(0,0,0,0)_44%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),transparent_45%,rgba(255,255,255,0.08))]" />
@@ -266,7 +267,7 @@ function SettlementCard() {
   return (
     <div
       data-anim="float-arrow"
-      className="relative h-auto w-[300px] overflow-hidden rounded-[20px] bg-white text-black shadow-[0_24px_60px_rgba(20,6,32,0.24)] sm:w-[270px] lg:h-[137px] lg:w-[297px]"
+      className="relative h-[274px] w-[600px] overflow-hidden rounded-[20px] bg-white text-black shadow-[0_24px_60px_rgba(20,6,32,0.24)]"
     >
       <div className="flex items-center gap-3 bg-[#fbf0ff] px-4 py-4 lg:h-[70px]">
         <Image src="/assets/business/avocado.svg" alt="" width={36} height={36} />
@@ -297,17 +298,17 @@ export default function BusinessHero() {
   const sectionRef = useHeroEntrance<HTMLElement>();
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen w-full overflow-hidden bg-black text-white">
-      <BusinessNavbar />
+    <section ref={sectionRef} className="relative  w-full overflow-hidden bg-black text-white">
+      <Navbar />
 
-      <div className="relative min-h-[760px] overflow-hidden lg:min-h-[820px]">
+      <div className="relative min-h-[907px] overflow-hidden">
         <Image
           src="/assets/business/globe.png"
           alt=""
-          fill
-          sizes="100vw"
+          width={1439}
+          height={907}
           priority
-          className="absolute inset-0 z-0 object-cover object-[65%_50%] opacity-95"
+          className="absolute inset-0 z-0 object-cover w-full h-full"
         />
         <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_68%_42%,rgba(89,20,139,0.08),rgba(2,2,13,0.24)_36%,rgba(0,0,0,0.86)_84%),linear-gradient(90deg,rgba(0,0,0,0.94),rgba(0,0,0,0.38)_45%,rgba(0,0,0,0.12)_72%)]" />
         <NetworkMesh />
@@ -325,11 +326,11 @@ export default function BusinessHero() {
           />
         ))}
 
-        <div className="relative z-20 mx-auto flex min-h-[760px] max-w-[1180px] flex-col items-center px-5 pb-16 pt-[92px] text-center lg:min-h-[820px] lg:px-8 lg:pt-[60px]">
+        <div className="relative z-20 mx-auto flex min-h-[760px] max-w-[1439px] flex-col items-center px-5 pb-16 pt-[92px] text-center lg:min-h-[820px] lg:px-8 lg:pt-[60px]">
           <div className="mx-auto max-w-[830px] lg:max-w-[1080px]">
             <h1
               data-anim="heading"
-              className="bg-[linear-gradient(88deg,#ffffff_10%,#ffffff_38%,#c978f0_72%,#a855f7_100%)] bg-clip-text text-[44px] font-extrabold leading-[1.15] text-transparent sm:text-[62px] lg:text-[68px]"
+              className="bg-[linear-gradient(88deg,#ffffff_10%,#ffffff_38%,#c978f0_72%,#a855f7_100%)] bg-clip-text text-[68px] font-semibold leading-[1.15] text-transparent"
             >
               AI-Powered Global Trade.
               <br />
@@ -338,7 +339,7 @@ export default function BusinessHero() {
 
             <p
               data-anim="copy"
-              className="mx-auto mt-6 max-w-[650px] text-[15px] font-medium leading-[1.4] text-white sm:text-[17px]"
+              className="mx-auto mt-6 max-w-[650px] text-[16px] font-medium leading-[1.4] text-white"
             >
               No more WhatsApp threads, lost paperwork, or manual delays. From
               documentation to instant payment, Mizan gives exporters, importers,
@@ -362,12 +363,20 @@ export default function BusinessHero() {
             </div>
           </div>
 
-          <div className="mt-12 grid w-full max-w-[952px] grid-cols-1 place-items-center gap-6 sm:mt-11 sm:grid-cols-[1fr_auto] sm:items-end lg:mt-8">
+          <div className="mt-12 grid w-full grid-cols-1 place-items-center gap-6 sm:mt-11 sm:grid-cols-[1fr_auto] sm:items-end lg:mt-8">
             <div className="sm:justify-self-start lg:translate-x-10">
               <GlobalPassCard />
             </div>
             <div className="sm:justify-self-end lg:-translate-x-12 lg:-translate-y-20">
-              <SettlementCard />
+              {/* <SettlementCard /> */}
+              <Image
+                src="/assets/business/nairobi-amster.png"
+                alt=""
+                width={297}
+                height={138}
+                priority
+                className="w-full h-full"
+              />
             </div>
           </div>
         </div>

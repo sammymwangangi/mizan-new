@@ -19,6 +19,7 @@
  */
 
 import React from "react";
+import Image from "next/image";
 
 /* -------------------------------------------------------------------------- */
 /*  Inline icon set (kept tiny — only what the two mockups actually use)       */
@@ -722,7 +723,7 @@ export default function MizanControlTowerSection() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(90deg,rgba(255,255,255,0.64),rgba(244,235,255,0.26),rgba(217,207,255,0.42))]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 "
       />
 
       <div className="relative mx-auto max-w-[1367px]">
@@ -739,22 +740,24 @@ export default function MizanControlTowerSection() {
           </p>
         </div>
 
+        <Image src="/assets/business/mac-book.webp" alt="Cross Border" width={1367} height={833} className="w-full h-full" />
+
         {/* Mockup composition */}
-        <div className="relative mx-auto mt-10 hidden max-w-[1248px] md:block lg:mt-11">
+        {/* <div className="relative mx-auto mt-10 hidden max-w-[1248px] md:block lg:mt-11"> */}
           {/* MacBook */}
-          <MacBookMockup>
+          {/* <MacBookMockup>
             <Dashboard />
-          </MacBookMockup>
+          </MacBookMockup> */}
 
           {/* Phone — overlaps bottom-right */}
-          <div className="pointer-events-none absolute bottom-[0.5%] right-[0.5%] w-[23%] min-w-[220px] max-w-[292px] lg:-right-[2.5%]">
+          {/* <div className="pointer-events-none absolute bottom-[0.5%] right-[0.5%] w-[23%] min-w-[220px] max-w-[292px] lg:-right-[2.5%]">
             <PhoneMockup>
               <PhoneScreen />
             </PhoneMockup>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
 
-        <div className="relative mx-auto mt-9 md:hidden">
+        {/* <div className="relative mx-auto mt-9 md:hidden">
           <div className="relative mx-auto w-[112%] max-w-none -translate-x-[6%] opacity-95">
             <MacBookMockup>
               <Dashboard />
@@ -766,7 +769,7 @@ export default function MizanControlTowerSection() {
               <PhoneScreen />
             </PhoneMockup>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

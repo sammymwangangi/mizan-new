@@ -169,7 +169,6 @@ export default function MoveFaster() {
       {/* ── glass card ── */}
       <div
         className="relative mx-auto max-w-[1340px] overflow-hidden rounded-[32px] shadow-[0_35px_90px_rgba(115,80,255,0.12)] px-7 py-10 sm:px-10 sm:py-14"
-        style={{ background: "rgba(255,255,255,0.98)" }}
       >
         {/* side lines clipped inside the card */}
         <SideLines side="left" />
