@@ -330,7 +330,7 @@ export default function BusinessHero() {
           <div className="mx-auto max-w-[830px] lg:max-w-[1080px]">
             <h1
               data-anim="heading"
-              className="bg-[linear-gradient(88deg,#ffffff_10%,#ffffff_38%,#c978f0_72%,#a855f7_100%)] bg-clip-text text-[44px] font-extrabold leading-[1.15] text-transparent sm:text-[62px] lg:text-[68px]"
+              className="bg-[linear-gradient(88deg,#ffffff_10%,#ffffff_38%,#c978f0_72%,#a855f7_100%)] bg-clip-text text-[68px] font-semibold leading-[1.15] text-transparent"
             >
               AI-Powered Global Trade.
               <br />
@@ -339,7 +339,7 @@ export default function BusinessHero() {
 
             <p
               data-anim="copy"
-              className="mx-auto mt-6 max-w-[650px] text-[15px] font-medium leading-[1.4] text-white sm:text-[17px]"
+              className="mx-auto mt-6 max-w-[650px] text-[16px] font-medium leading-[1.4] text-white"
             >
               No more WhatsApp threads, lost paperwork, or manual delays. From
               documentation to instant payment, Mizan gives exporters, importers,
