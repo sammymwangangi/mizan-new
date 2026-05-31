@@ -6,6 +6,7 @@ import MizanControlTowerSection from "@/components/business/MizanControlTowerSec
 import MoveMoney from "@/components/business/MoveMoney";
 import MoveFaster from "@/components/business/MoveFaster";
 import PricingTable from "@/components/business/PricingTable";
+import CrossBorder from "@/components/business/CrossBorder";
 
 export default function BusinessPage() {
   return (
@@ -17,6 +18,7 @@ export default function BusinessPage() {
         <MizanControlTowerSection />
         <MoveFaster />
         <PricingTable />
+        <CrossBorder />
         <SecurityCompliance />
         <Mountains />
         <Footer />
