@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 const NAV_ITEMS = [
-  { label: "Personal", href: "#" },
+  { label: "Personal", href: "/" },
   { label: "Business", href: "/business" },
   { label: "Intelligence Labs", href: "#" },
   { label: "About Us", href: "#" },
