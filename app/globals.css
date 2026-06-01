@@ -554,3 +554,46 @@ body {
     animation: none !important;
   }
 }
+
+/* MoveMoney section aurora animations */
+@keyframes aurora1 {
+  0%   { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+  25%  { transform: translate(20%, -15%) rotate(90deg) scale(1.15); }
+  50%  { transform: translate(5%, -20%) rotate(180deg) scale(1.05); }
+  75%  { transform: translate(-20%, -12%) rotate(270deg) scale(1.15); }
+  100% { transform: translate(0%, 0%) rotate(360deg) scale(1); }
+}
+
+@keyframes aurora2 {
+  0%   { transform: translate(0%, 0%) rotate(0deg) scale(1); }
+  25%  { transform: translate(-15%, 20%) rotate(-90deg) scale(1.2); }
+  50%  { transform: translate(18%, 5%) rotate(-180deg) scale(1.05); }
+  75%  { transform: translate(-12%, -20%) rotate(-270deg) scale(1.2); }
+  100% { transform: translate(0%, 0%) rotate(-360deg) scale(1); }
+}
+
+@keyframes aurora3 {
+  0%   { transform: translate(0%, 0%) rotate(45deg) scale(1); }
+  25%  { transform: translate(18%, 15%) rotate(135deg) scale(1.12); }
+  50%  { transform: translate(-8%, 20%) rotate(225deg) scale(1.05); }
+  75%  { transform: translate(-20%, -8%) rotate(315deg) scale(1.12); }
+  100% { transform: translate(0%, 0%) rotate(405deg) scale(1); }
+}
+
+@keyframes aurora4 {
+  0%   { transform: translate(0%, 0%) rotate(-45deg) scale(1); }
+  25%  { transform: translate(-18%, -15%) rotate(-135deg) scale(1.1); }
+  50%  { transform: translate(15%, -20%) rotate(-225deg) scale(1.05); }
+  75%  { transform: translate(20%, 10%) rotate(-315deg) scale(1.1); }
+  100% { transform: translate(0%, 0%) rotate(-405deg) scale(1); }
+}
+
+@keyframes headingGlow {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(209, 85, 255, 0.4)); }
+  50%       { filter: drop-shadow(0 0 40px rgba(209, 85, 255, 0.6)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .movemoney-aurora > div { animation: none !important; }
+  .movemoney-heading { animation: none !important; }
+}

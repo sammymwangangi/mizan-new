@@ -12,14 +12,6 @@ const navItems = [
   { label: "About", href: "#" },
 ];
 
-const shootingStars = [
-  { top: "24%", left: "69%", delay: "0s", duration: "5.8s" },
-  { top: "36%", left: "82%", delay: "1.6s", duration: "6.4s" },
-  { top: "52%", left: "76%", delay: "3.2s", duration: "7s" },
-  { top: "31%", left: "57%", delay: "4.4s", duration: "6.2s" },
-  { top: "66%", left: "88%", delay: "5.6s", duration: "7.4s" },
-];
-
 function BusinessNavbar() {
   return (
     <nav
@@ -65,9 +57,8 @@ function BusinessNavbar() {
   );
 }
 
-function NetworkMesh() {
+function DottedGlobe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseRef = useRef({ x: 0.32, y: 0.48, active: false });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -76,124 +67,243 @@ function NetworkMesh() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const particles = Array.from({ length: 46 }, (_, i) => ({
-      x: ((i * 73) % 100) / 100,
-      y: ((i * 41) % 100) / 100,
-      vx: (((i * 17) % 9) - 4) * 0.00045,
-      vy: (((i * 29) % 9) - 4) * 0.00035,
-    }));
+    canvas.width = 800;
+    canvas.height = 800;
 
-    let width = 0;
-    let height = 0;
-    let frame = 0;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 300;
+
+    const dots: { x: number; y: number; z: number; alpha: number }[] = [];
+    const numDots = 800;
+
+    for (let i = 0; i < numDots; i++) {
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      dots.push({
+        x: radius * Math.sin(phi) * Math.cos(theta),
+        y: radius * Math.sin(phi) * Math.sin(theta),
+        z: radius * Math.cos(phi),
+        alpha: 1,
+      });
+    }
+
+    interface ShootingStar {
+      startX: number; startY: number; startZ: number;
+      endX: number;   endY: number;   endZ: number;
+      progress: number; speed: number; active: boolean;
+    }
+
+    const shootingStars: ShootingStar[] = [];
+    const numStars = 3;
+    let currentStarIndex = 0;
+    let pauseTimer = 0;
+    const pauseDuration = 60;
+
+    for (let i = 0; i < numStars; i++) {
+      const startDot = dots[Math.floor(Math.random() * dots.length)];
+      const endDot   = dots[Math.floor(Math.random() * dots.length)];
+      shootingStars.push({
+        startX: startDot.x, startY: startDot.y, startZ: startDot.z,
+        endX:   endDot.x,   endY:   endDot.y,   endZ:   endDot.z,
+        progress: 0, speed: 0.008, active: i === 0,
+      });
+    }
+
+    let rotation = 0;
     let raf = 0;
 
-    const resize = () => {
-      const rect = canvas.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = rect.width;
-      height = rect.height;
-      canvas.width = Math.max(1, Math.floor(width * dpr));
-      canvas.height = Math.max(1, Math.floor(height * dpr));
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
+    function animate() {
+      if (!ctx || !canvas) return;
 
-    const onPointerMove = (event: PointerEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseRef.current = {
-        x: (event.clientX - rect.left) / rect.width,
-        y: (event.clientY - rect.top) / rect.height,
-        active: true,
-      };
-    };
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      rotation += 0.002;
 
-    const onPointerLeave = () => {
-      mouseRef.current.active = false;
-    };
+      dots.forEach((dot) => {
+        const rotatedX = dot.x * Math.cos(rotation) - dot.z * Math.sin(rotation);
+        const rotatedZ = dot.x * Math.sin(rotation) + dot.z * Math.cos(rotation);
+        const scale = 300 / (300 + rotatedZ);
+        const projectedX = rotatedX * scale + centerX;
+        const projectedY = dot.y * scale + centerY;
+        const opacity = ((rotatedZ + radius) / (radius * 2)) * 0.6;
 
-    const draw = () => {
-      frame += 1;
-      ctx.clearRect(0, 0, width, height);
-
-      const mouse = mouseRef.current;
-      const mouseX = mouse.x * width;
-      const mouseY = mouse.y * height;
-
-      particles.forEach((particle, index) => {
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        if (particle.x < 0.02 || particle.x > 0.98) particle.vx *= -1;
-        if (particle.y < 0.08 || particle.y > 0.92) particle.vy *= -1;
-
-        const px = particle.x * width;
-        const py = particle.y * height;
-        const pulse = 0.5 + Math.sin(frame * 0.018 + index) * 0.5;
-        const proximity = mouse.active
-          ? Math.max(0, 1 - Math.hypot(px - mouseX, py - mouseY) / 150)
-          : 0;
-
+        ctx.fillStyle = `rgba(147, 197, 253, ${opacity})`;
         ctx.beginPath();
-        ctx.fillStyle = `rgba(192, 132, 252, ${0.24 + pulse * 0.18 + proximity * 0.32})`;
-        ctx.arc(px + proximity * (mouseX - px) * 0.07, py + proximity * (mouseY - py) * 0.07, 1.3 + proximity * 2.4, 0, Math.PI * 2);
+        ctx.arc(projectedX, projectedY, 2 * scale, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      for (let i = 0; i < particles.length; i += 1) {
-        for (let j = i + 1; j < particles.length; j += 1) {
-          const a = particles[i];
-          const b = particles[j];
-          const ax = a.x * width;
-          const ay = a.y * height;
-          const bx = b.x * width;
-          const by = b.y * height;
-          const distance = Math.hypot(ax - bx, ay - by);
+      shootingStars.forEach((star) => {
+        if (!star.active) return;
 
-          if (distance < 112) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(168, 85, 247, ${0.13 * (1 - distance / 112)})`;
+        star.progress += star.speed;
+
+        if (star.progress >= 1) {
+          const startDot = dots[Math.floor(Math.random() * dots.length)];
+          const endDot   = dots[Math.floor(Math.random() * dots.length)];
+          star.startX = startDot.x; star.startY = startDot.y; star.startZ = startDot.z;
+          star.endX   = endDot.x;   star.endY   = endDot.y;   star.endZ   = endDot.z;
+          star.progress = 0;
+          star.speed = 0.008;
+          star.active = false;
+          currentStarIndex = (currentStarIndex + 1) % numStars;
+          shootingStars[currentStarIndex].active = true;
+          pauseTimer = 0;
+        }
+
+        const currentX = star.startX + (star.endX - star.startX) * star.progress;
+        const currentY = star.startY + (star.endY - star.startY) * star.progress;
+        const currentZ = star.startZ + (star.endZ - star.startZ) * star.progress;
+
+        const rotatedX = currentX * Math.cos(rotation) - currentZ * Math.sin(rotation);
+        const rotatedZ = currentX * Math.sin(rotation) + currentZ * Math.cos(rotation);
+        const scale = 300 / (300 + rotatedZ);
+        const projectedX = rotatedX * scale + centerX;
+        const projectedY = currentY * scale + centerY;
+
+        if (star.progress > 0.05) {
+          ctx.strokeStyle = `rgba(255, 255, 255, 0.12)`;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+
+          for (let t = Math.max(0, star.progress - 0.25); t <= star.progress; t += 0.01) {
+            const trailX = star.startX + (star.endX - star.startX) * t;
+            const trailY = star.startY + (star.endY - star.startY) * t;
+            const trailZ = star.startZ + (star.endZ - star.startZ) * t;
+            const rotTrailX = trailX * Math.cos(rotation) - trailZ * Math.sin(rotation);
+            const rotTrailZ = trailX * Math.sin(rotation) + trailZ * Math.cos(rotation);
+            const trailScale = 300 / (300 + rotTrailZ);
+            const projTrailX = rotTrailX * trailScale + centerX;
+            const projTrailY = trailY * trailScale + centerY;
+
+            if (t === Math.max(0, star.progress - 0.25)) {
+              ctx.moveTo(projTrailX, projTrailY);
+            } else {
+              ctx.lineTo(projTrailX, projTrailY);
+            }
+          }
+          ctx.stroke();
+        }
+
+        const gradient = ctx.createRadialGradient(projectedX, projectedY, 0, projectedX, projectedY, 12);
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${0.5 * (1 - star.progress * 0.2)})`);
+        gradient.addColorStop(0.5, `rgba(255, 255, 255, ${0.25 * (1 - star.progress * 0.2)})`);
+        gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(projectedX, projectedY, 12, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = `rgba(255, 255, 255, ${0.6 * (1 - star.progress * 0.1)})`;
+        ctx.beginPath();
+        ctx.arc(projectedX, projectedY, 2.5 * scale, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      if (pauseTimer < pauseDuration) {
+        pauseTimer++;
+      }
+
+      raf = requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return (
+    <div className="absolute right-[100px] top-1/2 z-2 -translate-y-1/2">
+      <canvas ref={canvasRef} aria-hidden="true" />
+    </div>
+  );
+}
+
+function AIBrain() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    canvas.width = 600;
+    canvas.height = 600;
+
+    interface Node {
+      x: number; y: number;
+      baseX: number; baseY: number;
+      vx: number; vy: number;
+    }
+
+    const nodes: Node[] = [];
+    const numNodes = 50;
+
+    for (let i = 0; i < numNodes; i++) {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      nodes.push({ x, y, baseX: x, baseY: y, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3 });
+    }
+
+    let raf = 0;
+
+    function animate() {
+      if (!ctx || !canvas) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      nodes.forEach((node) => {
+        node.x += node.vx;
+        node.y += node.vy;
+        node.vx += (node.baseX - node.x) * 0.0001;
+        node.vy += (node.baseY - node.y) * 0.0001;
+        node.vx *= 0.99;
+        node.vy *= 0.99;
+      });
+
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            ctx.strokeStyle = `rgba(147, 197, 253, ${(1 - distance / 150) * 0.15})`;
             ctx.lineWidth = 1;
-            ctx.moveTo(ax, ay);
-            ctx.lineTo(bx, by);
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.stroke();
           }
         }
       }
 
-      if (mouse.active) {
-        const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 170);
-        gradient.addColorStop(0, "rgba(168, 85, 247, 0.16)");
-        gradient.addColorStop(1, "rgba(168, 85, 247, 0)");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, width, height);
-      }
+      nodes.forEach((node) => {
+        ctx.fillStyle = "rgba(147, 197, 253, 0.4)";
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      });
 
-      if (!media.matches) {
-        raf = requestAnimationFrame(draw);
-      }
-    };
+      raf = requestAnimationFrame(animate);
+    }
 
-    resize();
-    draw();
-    window.addEventListener("resize", resize);
-    canvas.addEventListener("pointermove", onPointerMove);
-    canvas.addEventListener("pointerleave", onPointerLeave);
+    animate();
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-      canvas.removeEventListener("pointermove", onPointerMove);
-      canvas.removeEventListener("pointerleave", onPointerLeave);
     };
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      aria-hidden="true"
-      className="absolute inset-y-0 left-0 z-10 hidden w-full opacity-80 md:block"
-    />
+    <div className="absolute left-[100px] top-1/2 z-10 hidden -translate-y-1/2 opacity-60 md:block">
+      <canvas ref={canvasRef} aria-hidden="true" />
+    </div>
   );
 }
 
@@ -211,42 +321,18 @@ function ArrowRightIcon() {
   );
 }
 
-function Sparkline() {
-  return (
-    <svg viewBox="0 0 72 34" className="h-9 w-[72px]" fill="none" aria-hidden="true">
-      <path
-        d="M2 29C12 25 15 21 23 22C31 23 34 15 42 15C51 15 53 8 60 9C65 10 68 5 70 3"
-        stroke="#74e4c5"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M2 29C12 25 15 21 23 22C31 23 34 15 42 15C51 15 53 8 60 9C65 10 68 5 70 3V34H2V29Z"
-        fill="url(#sparklineFill)"
-      />
-      <defs>
-        <linearGradient id="sparklineFill" x1="36" x2="36" y1="3" y2="34">
-          <stop stopColor="#74e4c5" stopOpacity="0.35" />
-          <stop offset="1" stopColor="#74e4c5" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-}
 
 function GlobalPassCard() {
   return (
     <div
       data-anim="float-coin"
-      className="relative h-[504px] w-[764px] overflow-hidden rounded-[24px] bg-[#050505] shadow-[0_34px_80px_rgba(0,0,0,0.45)]"
+      className="relative h-[316px] w-[480px] overflow-hidden rounded-[24px] bg-[#050505] shadow-[0_34px_80px_rgba(0,0,0,0.45)]"
     >
-      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_46%_38%,rgba(255,255,255,0.38),rgba(255,255,255,0.08)_22%,rgba(0,0,0,0)_44%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),transparent_45%,rgba(255,255,255,0.08))]" /> */}
       <Image
         src="/assets/business/card-bg.svg"
         alt=""
-        width={764}
-        height={504}
+        width={480}
+        height={316}
         className="h-full w-full object-cover "
       />
       <Image
@@ -270,36 +356,6 @@ function GlobalPassCard() {
   );
 }
 
-function SettlementCard() {
-  return (
-    <div
-      data-anim="float-arrow"
-      className="relative h-[274px] w-[600px] overflow-hidden rounded-[20px] bg-white text-black shadow-[0_24px_60px_rgba(20,6,32,0.24)]"
-    >
-      <div className="flex items-center gap-3 bg-[#fbf0ff] px-4 py-4 lg:h-[70px]">
-        <Image src="/assets/business/avocado.svg" alt="" width={36} height={36} />
-        <div>
-          <h3 className="text-[17px] font-semibold leading-tight">
-            Nairobi - Amsterdam
-          </h3>
-          <p className="mt-1 text-[13px] text-[#6e6473]">1,750 kg Hass Avocados</p>
-        </div>
-      </div>
-      <div className="flex items-end justify-between gap-3 px-4 py-3 lg:h-[67px]">
-        <div>
-          <p className="text-[12px] text-[#7a707f]">Payment Received</p>
-          <div className="mt-1 flex items-center gap-2">
-            <span className="text-[16px] font-semibold">USDT 4,750.00</span>
-            <span className="rounded-md bg-[#ccfff0] px-1.5 py-0.5 text-[12px] font-medium">
-              50% paid
-            </span>
-          </div>
-        </div>
-        <Sparkline />
-      </div>
-    </div>
-  );
-}
 
 export default function BusinessHero() {
   const sectionRef = useHeroEntrance<HTMLElement>();
@@ -315,23 +371,11 @@ export default function BusinessHero() {
           width={1439}
           height={907}
           priority
-          className="absolute inset-0 z-0 object-cover w-full h-full"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_68%_42%,rgba(89,20,139,0.08),rgba(2,2,13,0.24)_36%,rgba(0,0,0,0.86)_84%),linear-gradient(90deg,rgba(0,0,0,0.94),rgba(0,0,0,0.38)_45%,rgba(0,0,0,0.12)_72%)]" />
-        <NetworkMesh />
-
-        {shootingStars.map((star, index) => (
-          <span
-            key={index}
-            className="shooting-star"
-            style={{
-              top: star.top,
-              left: star.left,
-              animationDelay: star.delay,
-              animationDuration: star.duration,
-            }}
-          />
-        ))}
+        <DottedGlobe />
+        <AIBrain />
 
         <div className="relative z-20 mx-auto flex min-h-[760px] max-w-[1439px] flex-col items-center px-5 pb-16 pt-[92px] text-center lg:min-h-[820px] lg:px-8 lg:pt-[60px]">
           <div className="mx-auto max-w-[830px] lg:max-w-[1080px]">
@@ -374,8 +418,16 @@ export default function BusinessHero() {
             <div className="sm:justify-self-start lg:translate-x-10">
               <GlobalPassCard />
             </div>
-            <div className="sm:justify-self-end lg:-translate-x-12 lg:-translate-y-20">
+            <div className="relative sm:justify-self-end lg:-translate-x-12 lg:-translate-y-20">
               {/* <SettlementCard /> */}
+              <Image
+                src="/assets/business/avocado.svg"
+                alt=""
+                width={33}
+                height={33}
+                priority
+                className="absolute left-[20px] top-[20%] w-[33px] h-[33px]"
+              />
               <Image
                 src="/assets/business/nairobi-amster.png"
                 alt=""
@@ -388,56 +440,6 @@ export default function BusinessHero() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .shooting-star {
-          position: absolute;
-          z-index: 15;
-          width: 3px;
-          height: 3px;
-          border-radius: 999px;
-          background: white;
-          box-shadow:
-            0 0 12px rgba(255, 255, 255, 0.95),
-            0 0 26px rgba(194, 132, 252, 0.85);
-          opacity: 0;
-          transform: rotate(-22deg);
-          animation-name: shoot;
-          animation-timing-function: ease-in-out;
-          animation-iteration-count: infinite;
-        }
-
-        .shooting-star::before {
-          content: "";
-          position: absolute;
-          right: 2px;
-          top: 1px;
-          width: 92px;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), transparent);
-          transform: translateY(-50%);
-        }
-
-        @keyframes shoot {
-          0%, 64%, 100% {
-            opacity: 0;
-            transform: translate3d(0, 0, 0) rotate(-22deg);
-          }
-          70% {
-            opacity: 1;
-          }
-          82% {
-            opacity: 0;
-            transform: translate3d(-170px, 68px, 0) rotate(-22deg);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .shooting-star {
-            animation: none;
-          }
-        }
-      `}</style>
     </section>
   );
 }
