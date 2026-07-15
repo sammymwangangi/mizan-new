@@ -142,8 +142,8 @@ export default function MeetRobinSection() {
       )
     `,
               // Backdrop blur — this is what makes it GLASS
-              backdropFilter: "blur(24px) saturate(160%)",
-              WebkitBackdropFilter: "blur(24px) saturate(160%)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
               // 1px border at low opacity for the frosted edge
               border: "1px solid rgba(255, 255, 255, 0.08)",
               // Outer drop shadow + inner top-edge highlight

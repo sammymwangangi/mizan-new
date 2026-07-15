@@ -98,7 +98,7 @@ export default function EarlyAccessForm({ onSuccess }: FormProps) {
           placeholder="Your email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full bg-transparent text-[15px] text-white placeholder-[#6D6E8A] outline-none"
+          className="w-full bg-transparent text-[15px] text-bg placeholder-[#6D6E8A] outline-none"
           required
         />
       </GradientField>

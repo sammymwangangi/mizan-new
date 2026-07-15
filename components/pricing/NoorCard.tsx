@@ -31,8 +31,8 @@ export default function NoorCard() {
         maxWidth: "420px",
         height: "650px",
         background: "linear-gradient(152.54deg, rgba(240, 233, 255, 0.14) 2.04%, rgba(184, 157, 235, 0.55) 31.78%, rgba(119, 89, 201, 0.9) 66.48%, #332857 101.18%)",
-        backdropFilter: "blur(1px) saturate(150%)",
-        WebkitBackdropFilter: "blur(1px) saturate(150%)",
+        backdropFilter: "blur(1px)",
+        WebkitBackdropFilter: "blur(1px)",
         boxShadow:
           "0 24px 60px -20px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.10)",
       }}

@@ -110,7 +110,7 @@ export default function BankGradeTrustSection() {
             ref={vaultRef}
             className="relative z-10"
             style={{
-              width: "440px",
+              width: "611px",
               height: "auto",
               willChange: "transform",
             }}
@@ -118,8 +118,8 @@ export default function BankGradeTrustSection() {
             <Image
               src="/assets/section4/vault.webp"
               alt="Bank-grade safe representing Mizan's security standards"
-              width={440}
-              height={420}
+              width={611}
+              height={611}
               className="h-auto w-full"
               priority={false}
               loading="lazy"

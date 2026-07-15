@@ -11,21 +11,13 @@ import PartnersMarquee from "@/components/PartnersMarquee";
 import EarlyAccessSection from "@/components/early-access/EarlyAccessSection";
 import Footer from "@/components/footer/Footer";
 import Image from "next/image";
+import AuroraVector from "@/components/AuroraVector/AuroraVector";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-[--color-bg]">
-
       {/* Main Hero light blob */}
-      <div aria-hidden className="pointer-events-none">
-        <Image
-          src="/assets/hero-light.svg"
-          alt=""
-          width={1895}
-          height={1770}
-          className="aurora-image absolute left-[50%] top-[7%] z-10"
-        />
-      </div>
+      <AuroraVector className="absolute left-[50%] top-[7%] z-10" />
 
       {/* Plan light blob — also gets the warp */}
       <div aria-hidden className="pointer-events-none">

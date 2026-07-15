@@ -88,11 +88,10 @@ body {
   100% { transform: translate3d(0, 0, 0) rotate(0deg); }
 }
 
-/* The "breathing" — opacity & hue cycle that runs simultaneously
-   with the drift. THIS is what makes it feel alive. */
+/* The "breathing" — opacity & scale pulse. */
 @keyframes aurora-pulse {
-  0%, 100% { opacity: 0.85; filter: blur(50px) hue-rotate(0deg); }
-  50%      { opacity: 1;    filter: blur(55px) hue-rotate(20deg); }
+  0%, 100% { opacity: 0.85; filter: blur(50px); }
+  50%      { opacity: 1;    filter: blur(55px); }
 }
 
 .aurora-blob {
@@ -120,10 +119,12 @@ body {
 .glass-card {
   position: relative;
   background: var(--color-glass);
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-glass);
+  /* Safari @property fallback: static conic-gradient shows at 0deg */
+  --border-angle: 0deg;
 }
 
 .glass-card.glass-card--hero {
@@ -366,61 +367,67 @@ body {
 
 /* ============================================
    HEART-BEAT RIPPLE BUTTON
-   Three rings emanate outward in sequence,
-   creating a continuous "heartbeat" pulse that
-   draws the eye to the CTA without being annoying.
+   Two quick, soft halos followed by a quiet pause.
+   The button's own colors and styling are unchanged.
    ============================================ */
 .ripple-btn {
   position: relative;
   isolation: isolate;
 }
 
-.ripple {
+.ripple-btn::before,
+.ripple-btn::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  z-index: -1;
+  inset: -4px -7px;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.18);
   pointer-events: none;
-  animation: ripple-pulse 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-  /* Sit BEHIND the button text */
-  z-index: 0;
+  opacity: 0;
+  transform: scale(1);
+  animation: ripple-pulse 5s cubic-bezier(0.22, 0.7, 0.32, 1) infinite;
+  will-change: transform, opacity;
 }
 
-/* Each ring starts 0.8s after the previous one, so all three are
-   in different stages of their cycle at any moment.
-   With duration 2.4s and 3 rings staggered 0.8s apart, you always
-   see at least one in motion. */
-.ripple-1 {
-  animation-delay: 0s;
-}
-.ripple-2 {
-  animation-delay: -0.8s;
-}
-.ripple-3 {
-  animation-delay: -1.6s;
+/* The second halo creates the short double-beat seen in the reference. */
+.ripple-btn::after {
+  animation-delay: 0.55s;
 }
 
 @keyframes ripple-pulse {
   0% {
-    opacity: 0.55;
+    opacity: 0;
     transform: scale(1);
-    border-width: 2px;
   }
-  70% {
-    opacity: 0.05;
-    border-width: 1px;
+
+  2% {
+    opacity: 0.28;
+    transform: scale(1.02, 1.04);
   }
+
+  10% {
+    opacity: 0.2;
+    transform: scale(1.08, 1.2);
+  }
+
+  22% {
+    opacity: 0;
+    transform: scale(1.16, 1.38);
+  }
+
   100% {
     opacity: 0;
-    transform: scale(1.6);
-    border-width: 0px;
+    transform: scale(1.16, 1.38);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ripple {
+  .ripple-btn::before,
+  .ripple-btn::after {
     animation: none;
     opacity: 0;
+    will-change: auto;
   }
 }
 
@@ -446,17 +453,11 @@ body {
   50%      { opacity: 0.85; }
 }
 
-@keyframes aurora-image-shift {
-  0%, 100% { filter: hue-rotate(0deg); }
-  50%      { filter: hue-rotate(15deg); }
-}
-
 .aurora-image {
   animation:
     aurora-image-drift 18s ease-in-out infinite,
-    aurora-image-pulse 9s ease-in-out infinite,
-    aurora-image-shift 12s ease-in-out infinite;
-  will-change: transform, opacity, filter;
+    aurora-image-pulse 9s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -473,6 +474,10 @@ body {
    and border-rotate keyframes (inherits: false
    gives each element its own independent instance).
    ============================================ */
+
+.cross-border-card {
+  --border-angle: 0deg;
+}
 
 .cross-border-card::before {
   content: "";
@@ -497,6 +502,11 @@ body {
   animation: border-rotate 3s linear infinite;
   pointer-events: none;
   z-index: 40;
+}
+
+.payment-card-left,
+.payment-card-right {
+  --border-angle: 0deg;
 }
 
 .payment-card-left::before {

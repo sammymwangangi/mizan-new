@@ -222,8 +222,8 @@ export default function GrowCard() {
           borderRadius: "17.83px",
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 100%)",
-          backdropFilter: "blur(1px) saturate(110%)",
-          WebkitBackdropFilter: "blur(1px) saturate(110%)",
+          backdropFilter: "blur(1px)",
+          WebkitBackdropFilter: "blur(1px)",
           // 1px inside stroke with linear gradient
           boxShadow: "inset 0 0 0 1px transparent, 0 8px 24px rgba(0,0,0,0.15)",
         }}

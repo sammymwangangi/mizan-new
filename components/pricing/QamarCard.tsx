@@ -35,8 +35,8 @@ export default function QamarCard() {
         background:
           "linear-gradient(151.79deg, rgba(111, 0, 177, 0.06) 0%, rgba(174, 99, 230, 0.20) 34.05%, rgba(66, 16, 62, 0.25) 68.18%, rgba(34, 4, 24, 0.30) 98.87%)",
         border: "1px solid rgba(243, 232, 255, 0.18)",
-        backdropFilter: "blur(16px) saturate(180%)",
-        WebkitBackdropFilter: "blur(16px) saturate(180%)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
         boxShadow:
           "0 24px 60px -20px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.18)",
       }}
